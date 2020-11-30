@@ -1,0 +1,135 @@
+.bind {
+  width: 690rpx;
+  margin: 100rpx 0 0 30rpx;
+}
+
+.bind-phone {
+  color: #454245;
+  font-size: 36rpx;
+  margin-bottom: 34rpx;
+}
+
+.bind-phone-in {
+  color: #666;
+  font-size: 30rpx;
+  margin-bottom: 18rpx;
+}
+
+.margin {
+  margin-bottom: 46rpx;
+}
+
+.phone-input {
+  position: relative;
+}
+
+.bind-input {
+  width: 549rpx;
+  height: 80rpx;
+  background: #f6f6f6;
+  border-radius: 6rpx;
+  padding-left: 141rpx;
+}
+
+.bind-place {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.bind-num {
+  position: absolute;
+  left: 28rpx;
+  top: 0;
+  font-size: 28rpx;
+  color: #454245;
+  z-index: 100;
+  line-height: 80rpx;
+}
+
+.bind-nums {
+  position: absolute;
+  left: 28rpx;
+  top: 0rpx;
+  font-size: 28rpx;
+  color: #454245;
+  z-index: 100;
+  line-height: 80rpx;
+}
+
+.bind-downpull {
+  width: 24rpx;
+  height: 16rpx;
+  position: absolute;
+  left: 98rpx;
+  top: 35rpx;
+  z-index: 100;
+}
+
+.code-input {
+  position: relative;
+  margin-top: 44rpx;
+  display: flex;
+}
+
+.bind-code-input {
+  width: 279rpx;
+  height: 80rpx;
+  background: #f6f6f6;
+  margin-right: 30rpx;
+  padding-left: 141rpx;
+ float: left;
+}
+
+.send-code {
+  width: 240rpx;
+  height: 80rpx;
+  font-size: 34rpx;
+  display: inline-block;
+   color: #fff !important;
+  border-radius: 12rpx;
+  background: #e7e7e7 !important;
+  text-align: center;
+  outline: none; 
+}
+
+button::after {
+  border: 0;
+}
+
+.bind-success {
+  height: 80rpx;
+  text-align: center;
+  color: #fff !important;
+  font-size: 38rpx;
+  border-radius: 12rpx;
+  background: #e7e7e7 !important;
+  margin: 53rpx 0 34rpx 0;
+}
+
+.bind-desc {
+  width: 100%;
+  font-size: 26rpx;
+  color: #7a7a7a;
+  text-align: center;
+  margin-left: 30rpx;
+}
+
+.read-true {
+  width: 26rpx;
+  height: 26rpx;
+  position: absolute;
+  left: 130rpx;
+  margin-top: -15rpx;
+  border: 10px solid transparent;
+  background-clip: padding-box;
+}
+
+.bind-reset {
+  width: 29rpx;
+  height: 29rpx;
+  position: absolute;
+  right: 0rpx;
+  top: 6rpx;
+  z-index: 1024;
+  border: 10px solid transparent;
+}

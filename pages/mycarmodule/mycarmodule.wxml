@@ -1,0 +1,147 @@
+<view class='line'></view>
+<view class='top_title' wx:if="{{prename != ''}}">
+  <view>
+    {{prename}}{{underLayer}}
+  </view>
+  <view class='top_right'>{{val}}</view>
+  <view>车位</view>
+</view>
+<view class='time' wx:if="{{userStatus == 0 && prename != ''}}">有效期：{{validity}}</view>
+<view class='time'  wx:if="{{userStatus == 1 && prename != ''}}">有效期：{{validitys}}</view>
+<image class='imgNumber' src='{{src}}'>
+</image>
+<view class='electric' wx:if='{{unusualBattery == 0}}'>
+  <image class='electric_img' src='../../assets/icon/dianliang@2x.png'></image>
+  <view class='electric_text'>电量不足</view>
+</view>
+<view class='leave' wx:if='{{gatewayStatus == 0}}'>车位已离线</view>
+
+<view class='prak_i' wx:if='{{operateAuthFlag == 1}}'>
+  <image class='prak_img' src='../../assets/img/beijing@2x.png' style="height:{{prak_Height}}px;">
+    <view class='prak_navigation' style="height:{{navigation_Height}}px;">
+      <view class='park_item' bindtap='navigation_item' wx:if='{{num > 1}}'>
+        <image src='../../assets/img/qiehuan@2x.png'></image>
+      </view>
+      <view class='lin' wx:if='{{num > 1}}'></view>
+
+      <view class='park_item' bindtap='record' wx:if='{{userStatus  == 1}}'>
+        <image src='../../assets/img/shiyongjilu@2x.png'></image>
+      </view>
+      <view class='lin' wx:if='{{userStatus  == 1}}'></view>
+      <view class='park_item' bindtap='malfunction'>
+        <image src='../../assets/img/guzhangbaoxiu@2x.png'></image>
+      </view>
+      <view class='lin'></view>
+      <view class='park_item' bindtap='More'>
+        <image src='../../assets/img/gengduo@2x.png'></image>
+      </view>
+    </view>
+  </image>
+</view>
+
+<view class='search_park' bindtap='carwhere' wx:if='{{ userStatus == 0 }}'>
+  <image src='../../assets/img/zhaochewei@2.png'></image>
+  <view>找车位</view>
+</view>
+<!-- wx:if='{{userStatus == 0}}' -->
+<view class="impo">
+  <image class='impower' wx:if='{{isAuthFlag == 1 && userStatus == 1}}' bindtap='impowerTap'    src='../../assets/icon/shouquan@2x.png'></image>
+</view>
+  <image wx:if="{{impower_show == true && isAuthFlag == 1}}" class='impowers' src='../../assets/icon/ti.png'></image>
+  <view wx:if="{{impower_show == true && isAuthFlag == 1}}" class='impowere' bindtap='impowers'></view>
+
+<view class='user_message' wx:if="{{stallStatus == 2 && useUserName != '' && useUserName != null}}">
+  <view class='user'>使用人</view>
+  <view class='user_name'>{{useUserName}}</view>
+</view>
+<view class='down_timees' wx:if='{{downLockTime != null}}'>
+  <view class='down_text'>降锁时间</view>
+  <view class='down_times'>{{downLockTime}}</view>
+</view>
+<view class='down_time' wx:if="{{useUpLockTime != null}}">
+  <view class='down_text'>上次使用时间</view>
+  <view class='down_times'>{{useUpLockTime}}</view>
+</view>
+
+<view class='bottom' wx:if="{{prename != ''}}">
+  <view bindtap='top' class="{{operateAuthFlag == 1 ? 'bottom_top' : 'bottom_tops'}}">
+    升起
+  </view>
+  <view bindtap='bottom' class="{{operateAuthFlag == 1 ? 'bottom_bottom' : 'bottom_bottoms'}}">
+    降下
+  </view>
+</view>
+<cover-view style='display:{{loading}}' class='loading'>
+  <cover-view class='load-txt'>{{loadingText}}</cover-view>
+</cover-view>
+
+
+<!-- 导航选择 -->
+<view class='appointments' style='display:{{navigation}}' bindtap='prke'>
+  <view class='appointments_item'>
+    <view class='appointments_item_itme' bindtap='navigation_item' wx:if='{{num > 1}}'>
+      <image src='../../assets/img/cehweiqiehuan@2x.png'></image>
+      <view>车位切换</view>
+    </view>
+    <view class='appointments_item_itme' bindtap='more_malfunction' wx:if='{{userStatus  == 1}}'>
+      <image src='../../assets/img/jilu@2x.png'></image>
+      <view>使用记录</view>
+    </view>
+    <view class='appointments_item_itme' bindtap='malfunction'>
+      <image src='../../assets/img/guzhagnbaoxiu@2x.png'></image>
+      <view>故障报修</view>
+    </view>
+  </view>
+</view>
+
+<!-- 降锁，再降一次 -->
+<cover-view class='starts' style='display:{{begins}}'>
+  <cover-view class="begin">
+    <cover-view class='con'>{{aligns}}</cover-view>
+    <cover-view class='fails'></cover-view>
+    <cover-view class='caos'>
+      <cover-view class='ones one' bindtap='xiao'>取消</cover-view>
+      <cover-view class='ones oo' bindtap='ones'>{{ss}}</cover-view>
+    </cover-view>
+  </cover-view>
+</cover-view>
+
+<view class='box' wx:if='{{show == true}}'>
+  <view class='body'>
+    <view class='top'>您正在使用长租[{{val}}]车位</view>
+    <view class='bottoms' catchtap='shows'>确定</view>
+  </view>
+</view>
+
+<view class='bodys' wx:if='{{shows1}}'>
+  <view class='boxs'>
+    <view class='tops'>
+      <view class='title'>固定车位注意事项</view>
+      <view class='contents'>
+        <image class='imgs' src='../../assets/icon/jiangxiadisuo@2x.png'></image>
+        <view class='contents_right'>
+          <view class='right_tops'>降下地锁</view>
+          <view class='right_bottoms'>车辆到达车位后降下地锁</view>
+        </view>
+      </view>
+      <view class='contents'>
+        <image class='imgs' src='../../assets/icon/shengqidisuo@2x.png'></image>
+        <view class='contents_right'>
+          <view class='right_tops'>升起地锁</view>
+          <view class='right_bottoms'>车辆驶离车位后升起地锁</view>
+        </view>
+      </view>
+    </view>
+    <view class='bottomss'>
+      <view class='bottomss_left' catchtap='noshow'>不再提示</view>
+      <view class='bottomss_right' catchtap='know'>知道了</view>
+    </view>
+  </view>
+</view>
+
+ <view class="nopermissions" wx:if="{{nopermission == true}}">
+      <view class="nopermissions_content">
+          <view class="nopermissions_top">{{nopermissions}}</view>
+          <view class="nopermissions_bottom" bindtap="nopermissione">确定</view>
+      </view>
+ </view>

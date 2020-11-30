@@ -1,0 +1,31 @@
+<view class='add-plate'>
+   <view class='plate-txt'>请添加真实有效的车牌号码</view>
+   <view class='plate-inp'>
+      <view bindtap='plateZh' class='plate-zh'>{{zhData[0]}}</view>
+      <view bindtap='inMsg' class='plate-zh'>{{zhData[1]}}</view>
+      <image class='plate-circle' src='../../../assets/img/circle.png'></image>
+      <view class='plate-num' bindtap='inMsg'>
+         <text wx:for="{{zhData}}" wx:key="index" wx:if="{{index>1}}">{{item}}</text>
+         <text wx:if="{{zhData.length<3}}">请输入完整信息</text>
+      </view>
+   </view>
+   <view class='eight'>
+      <view class='eight-num'>8位新能源车牌</view>
+      <image bindtap='changeNum' class='eight-img' src="{{CanNum == 7?'../../../assets/img/tianjiachepaihao@3x.png':'../../../assets/img/xunahzong.png'}}"></image>
+   </view>
+   <button bindtap='addPlete' class='add-btn' data-clicknum=''>保存</button>
+   <view class='keyword' wx:if="{{keyWord==true}}">
+      <view class='key-txt'>
+         <text bindtap='keyDel' class='key-del'>删除</text>
+         <text bindtap='keyTrue' class='key-true'>确定</text>
+      </view>
+      <view class='key-btn-container'>
+         <view class='key-btn' bindtap='inPleteNumber' data-key="{{item}}" wx:for="{{keyBtn}}" wx:key="index">
+            {{item}}
+         </view>
+         <!-- <view class='key-btn' wx:for="{{descWord}}" wx:key="index">
+        {{item}}
+      </view> -->
+      </view>
+   </view>
+</view>

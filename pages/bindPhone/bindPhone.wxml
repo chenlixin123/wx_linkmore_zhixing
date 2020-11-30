@@ -1,0 +1,19 @@
+<view class='bind'>
+  <view class='bind-phone'>手机验证</view>
+  <view class='bind-phone-in'>请输入您的手机号</view>
+  <view class='bind-phone-in margin'>登陆或注册您的凌猫停车账号</view>
+  <view class='phone-input'>
+    <input maxlength='11' bindinput="inPhone"  type='number' class='bind-input' placeholder='请输入您的手机号' placeholder-class='bind-place' confirm-type='done' value='{{userPhone}}'></input>
+    <image class='bind-downpull' src='../../assets/img/denglu_xiala.png'></image>
+    <image catchtap='resetPhone' style='display:{{resetFlag}}' class='bind-reset' src='../../assets/img/chepaihaoguanli_cuowu@3x.png'></image>
+    <text class='bind-num'>+86</text>
+  </view>
+  <view class='code-input'>
+    <input maxlength='4' bindinput="inCodes" catchblur="userCodes" type='number' class='bind-code-input' placeholder='请输入验证码' placeholder-class='bind-place'></input>
+    <button class='send-code' disabled='{{codeBtn}}' bindtap='getCode' style='{{back}}'>{{btnDesc}}</button>
+    <text class='bind-nums'>验证码</text>
+  </view>
+  <button class='bind-success' disabled='{{subFlag}}' bindtap='bindPhone' style='{{backs}}'>确定</button>
+  <image bindtap='readFlag' class='read-true' src="{{readFlag==false?'../../assets/img/read_true.png':'../../assets/img/xaunzechepaihao_huise@3x.png'}}"></image>
+  <view class='bind-desc'>我已阅读并同意<text bindtap='goClause'>《凌猫停车服务协议》</text></view>
+</view>

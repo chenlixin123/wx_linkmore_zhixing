@@ -1,0 +1,25 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/mycarmodule/mycarmodule",
+    "pages/bindPhone/bind",
+    "pages/bindPhone/bindPhone",
+    "pages/plateNumber/addPlate/addPlate",
+    "pages/plateNumber/plateNumber",
+    "pages/carClause/carClause",
+    "pages/noCarModule/noCarModule"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示" 
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "凌猫智行",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

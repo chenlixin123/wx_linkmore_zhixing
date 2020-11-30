@@ -1,0 +1,42 @@
+.bind-txt1 {
+  font-size: 36rpx;
+  color: #454245;
+  font-weight: bold;
+  margin: 64rpx 0 24rpx 30rpx;
+}
+
+.bind-txt2 {
+  font-size: 30rpx;
+  color: #666;
+  margin: 0 0 68rpx 30rpx;
+}
+
+.btn {
+  position: relative;
+}
+
+.btn-bg {
+  width: 690rpx;
+  height: 100rpx;
+  margin-left: 30rpx;
+}
+
+.btn-txt {
+  /* font-size: 36rpx; */
+  color: #fff;
+  /* width: 990rpx; */
+  height: 100rpx;
+  text-align: center;
+  /* line-height: 100rpx; */
+  font-weight: bold;
+  background: #f66913;
+}
+
+.phone-login {
+  width: 100%;
+  text-align: center;
+  margin-top: 24rpx;
+  font-size: 30rpx;
+  color: #f66913;
+}
+.page{background-color:var(--weui-BG-2)}

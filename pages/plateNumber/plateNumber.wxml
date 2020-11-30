@@ -1,0 +1,24 @@
+<view class='plate-number'>
+  <view class='plate-box'>
+    <view class='add-plate' bindtap='goAddPlate'>添加车牌号</view>
+    <view class='plate-list' wx:for="{{plateList}}" wx:key="index">
+      <text>{{item.vehMark}}</text>
+      <image catchtap='delPlate' data-platenumber='{{item.vehMark}}' data-plateid='{{item.id}}' class='del-img' src='../../assets/img/chepaihaoguanli_cuowu@3x.png'></image>
+    </view>
+  </view>
+</view>
+<view class='show' wx:if='{{shows3}}'>
+  <view class='shoes'>
+    <view class='shan'>车牌号删除</view>
+    <view class='content'>{{context}}</view>
+    <view class='context'>
+      <view class='fail' catchtap='xiao'>取消</view>
+      <view class='conpont' catchtap='dels'>确定</view>
+    </view>
+  </view>
+</view>
+
+<!-- loading -->
+  <view style='display:{{loading}}' class='loadingq'>
+    <view class='load-txtq'>加载中请稍候...</view>
+  </view>

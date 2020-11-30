@@ -1,0 +1,115 @@
+/**app.wxss**/
+@import "weui.wxss";
+/**app.wxss**/
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.laoding-img {
+  width: 137rpx;
+  height: 137rpx;
+  position: absolute;
+  left: -10rpx;
+  top: -24rpx;
+  margin-right: 13rpx;
+}
+
+.loading{
+  width: 312rpx;
+  height: 80rpx;
+  color: #fff;
+  position: fixed;
+  top: 500rpx;
+  left: 219rpx;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 8rpx;
+  z-index: 11000;
+}
+
+.loadings {
+  width: 312rpx;
+  height: 80rpx;
+  color: #fff;
+  position: fixed;
+  top: 70%;
+  left: 219rpx;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 8rpx;
+  z-index: 1100;
+}
+
+.loadings .loads {
+  text-align: center;
+  height: 100%;
+  line-height: 80rpx;
+}
+
+.load-txt{
+  display: inline-block;
+  line-height: 80rpx;
+  margin-left: 72rpx;
+}
+
+.loading .loads {
+  width: 100rpx;
+  height: 100rpx;
+  position: absolute;
+  left: -10rpx;
+  top: -24rpx;
+  margin-right: 13rpx;
+  z-index: 1100;
+}
+
+.zhan{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,.5);
+  z-index: 1000;
+}
+.zhans{
+  width: 80%;
+  /* height: 286rpx; */
+  margin: 60% auto;
+  background: #fff;
+  border-radius: 20rpx;
+}
+
+.zhans .content{
+  width: 100%;
+  height: 150rpx;
+  line-height: 150rpx;
+  text-align: center;
+  font-size: 34rpx;
+  color: #333333;
+  box-sizing: border-box;
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+  /* border-bottom: 1rpx solid #dedede; */
+}
+.zhans .confirms{
+  width: 100%;
+  text-align: center;
+  height: 110rpx;
+  line-height: 110rpx;
+  font-size: 32rpx;
+  color: #666666;
+  border-top: 1rpx solid #dedede;
+}
+/* .zhans .xians{
+  width: 100%;
+  height: 1rpx;
+  background: #dedede;
+} */
