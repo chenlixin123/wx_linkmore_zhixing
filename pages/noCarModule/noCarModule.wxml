@@ -5,14 +5,14 @@
 <view class="bottom_text">
   如需开通长租车位，请咨询凌猫停车
 </view>
-<view class='box'wx:if='{{show}}'>
+<view class='box' wx:if='{{show}}'>
   <view class='small_box'>
     <view class='box_one'>
-        最多能添加三个车牌
-    </view> 
+      最多能添加三个车牌
+    </view>
     <view class='box_two'>
-        请去[个人中心]-[车牌号]进行修改
-    </view> 
+      请去[个人中心]-[车牌号]进行修改
+    </view>
     <view class='line'></view>
     <view class='btns' catchtap='btns'>确定</view>
   </view>

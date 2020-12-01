@@ -9,12 +9,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    readFlag: false,//是否已读
+    readFlag: false, //是否已读
     btnDesc: "获取验证码",
-    codeBtn: true,//获取验证码按钮flag
-    resetFlag: "none",//清空手机号flag
+    codeBtn: true, //获取验证码按钮flag
+    resetFlag: "none", //清空手机号flag
     second: 60,
-    subFlag: false//确定按钮flag
+    subFlag: false //确定按钮flag
   },
 
   /**
@@ -35,7 +35,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-        console.log(app.token)
+    console.log(app.token)
   },
 
   /**
@@ -71,11 +71,11 @@ Page({
       readFlag: !this.data.readFlag,
       subFlag: !this.data.subFlag,
     })
-    if (this.data.subFlag == true){
+    if (this.data.subFlag == true) {
       this.setData({
         backs: "background: #e7e7e7 !important;"
       })
-    }else{
+    } else {
       this.setData({
         backs: "background: #f66913 !important;"
       })
@@ -90,15 +90,15 @@ Page({
     let myreg = /^[1][3,4,5,7,8][0-9]{9}$/;
     if (e.detail.value != "" && myreg.test(e.detail.value)) {
       console.log('11111111')
-        this.setData({
-          resetFlag: "block",//清楚已输入手机号和获取验证码的flag,
-          back: "background: #f66913 !important;",
-          codeBtn: false
-        })
-    }else{
+      this.setData({
+        resetFlag: "block", //清楚已输入手机号和获取验证码的flag,
+        back: "background: #f66913 !important;",
+        codeBtn: false
+      })
+    } else {
       console.log('22222222222')
       this.setData({
-        resetFlag: "none",//清楚已输入手机号和获取验证码的flag,
+        resetFlag: "none", //清楚已输入手机号和获取验证码的flag,
         codeBtn: true
       })
       if (this.data.second == 60) {
@@ -121,13 +121,13 @@ Page({
     if (e.detail.value != "" && this.data.readFlag == false && e.detail.cursor == 4) {
       this.setData({
         subFlag: false,
-        backs: "background: #f66913 !important;",//按钮可以点击时的样式
+        backs: "background: #f66913 !important;", //按钮可以点击时的样式
         userCode: e.detail.value
       })
-    }else{
+    } else {
       this.setData({
         subFlag: true,
-        backs: "background: #e7e7e7 !important;",//按钮不可以点击时的样式
+        backs: "background: #e7e7e7 !important;", //按钮不可以点击时的样式
         userCode: e.detail.value
       })
     }
@@ -143,15 +143,15 @@ Page({
         second: 60
       })
     }
-    let codeTime=null;
-    codeTime = setInterval(function(){
-      if (self.data.second == 1){
+    let codeTime = null;
+    codeTime = setInterval(function () {
+      if (self.data.second == 1) {
         clearInterval(codeTime);
         self.setData({
           btnDesc: "重发验证码",
           codeBtn: false
         })
-      }else{
+      } else {
         self.data.second--;
         let btnDesc = self.data.second + "s";
         self.setData({
@@ -162,21 +162,21 @@ Page({
     }, 1000)
     api.GET({
       url: app.url.send_code + '?mobile=' + self.data.userPhone,
-      success: function(res){
+      success: function (res) {
         console.log(res)
-        if(res.data.status == true){
+        if (res.data.status == true) {
           wx.showToast({
             title: '短信发送成功',
           })
-        }else{
+        } else {
           wx.showToast({
             title: '短信发送失败',
-            icon:'none'
+            icon: 'none'
           })
         }
-       
+
       },
-      fail: function(){
+      fail: function () {
         wx.showToast({
           title: '短信发送失败',
         })
@@ -185,28 +185,27 @@ Page({
   },
   //清空已输入手机号
   resetPhone() {
-    if(this.data.second != 60){
+    if (this.data.second != 60) {
       console.log("清空已输入手机号");
       this.setData({
         back: "background: #f66913 !important",
       })
-    }else{
+    } else {
       this.setData({
         back: "background: #e7e7e7",
       })
     }
     this.setData({
       userPhone: "",
-      resetFlag: "none",//清楚已输入手机号和获取验证码的flag,
+      resetFlag: "none", //清楚已输入手机号和获取验证码的flag,
       codeBtn: true
     })
   },
-  userCode() {
-  },
+  userCode() {},
   //点击确定
   bindPhone() {
     let self = this;
-    if(!self.data.userPhone){
+    if (!self.data.userPhone) {
       wx.showModal({
         title: '提示消息',
         content: '请填写手机号',
@@ -214,7 +213,7 @@ Page({
       })
       return
     }
-    if(!self.data.userCode){
+    if (!self.data.userCode) {
       wx.showModal({
         title: '提示消息',
         content: '请填写验证码',
@@ -230,9 +229,9 @@ Page({
         code: userCode,
         mobile: userPhone
       },
-      success: function(res) {
+      success: function (res) {
         console.log(res)
-        if (res.data.status == true){
+        if (res.data.status == true) {
           let globalData = res.data.data;
           wx.setStorage({
             key: 'codeMsgs',
@@ -247,7 +246,7 @@ Page({
           wx.reLaunch({
             url: '/pages/index/index',
           })
-        }else{
+        } else {
           wx.showModal({
             title: '提示消息',
             content: res.data.message.content,
@@ -255,10 +254,10 @@ Page({
           })
         }
       },
-      fail: function(){
+      fail: function () {
 
       }
-    },app.token)
+    }, app.token)
   },
   //跳转约车条款页面
   goClause() {
@@ -266,5 +265,5 @@ Page({
       url: '/pages/carClause/carClause',
     })
   }
-  
+
 })

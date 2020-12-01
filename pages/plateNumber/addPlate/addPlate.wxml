@@ -11,7 +11,9 @@
    </view>
    <view class='eight'>
       <view class='eight-num'>8位新能源车牌</view>
-      <image bindtap='changeNum' class='eight-img' src="{{CanNum == 7?'../../../assets/img/tianjiachepaihao@3x.png':'../../../assets/img/xunahzong.png'}}"></image>
+      <image bindtap='changeNum' class='eight-img'
+         src="{{CanNum == 7?'../../../assets/img/tianjiachepaihao@3x.png':'../../../assets/img/xunahzong.png'}}">
+      </image>
    </view>
    <button bindtap='addPlete' class='add-btn' data-clicknum=''>保存</button>
    <view class='keyword' wx:if="{{keyWord==true}}">

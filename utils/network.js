@@ -1,16 +1,15 @@
-
 const app = getApp();
 // console.log(app)
 var requestHandler = {
   url: '',
   params: {},
-  success: function(res) {
+  success: function (res) {
     // success
   },
-  fail: function() {
+  fail: function () {
     // fail  
   },
-  complete: function() {
+  complete: function () {
     //complete
   }
 }
@@ -46,9 +45,9 @@ function request(method, requestHandler, headers) {
       "X-Access-Auth-Token": headers ? headers : "",
       "os": "0"
     },
-    success: function(res) {
+    success: function (res) {
       requestHandler.success && requestHandler.success(res);
-      // console.log(res);
+      console.log(res);
       if (res.data.status == false && res.data.message.code == 404) {
         wx.showToast({
           title: '该服务未在线',
@@ -61,48 +60,51 @@ function request(method, requestHandler, headers) {
         })
         // console.log('服务异常了‘’‘’‘’‘’‘’‘’‘’‘’‘’‘’‘’‘’‘')
       }
-      // if (res.data.status == false && res.data.message.code == 9002000) {
-      //     wx.login({
-      //       success: res => {
-      //         console.log(res)
-      //         app.code = res.code;
-      //         wx.request({
-      //           url: app.url.vx_login,
-      //           data: {
-      //             code: res.code,
-      //             alias:'1001'
-      //           },
-      //           method: "GET",
-      //           header: {
-      //             "Content-Type": "application/json",
-      //             "Accept": "application/json",
-      //             "X-Access-Auth-Token": "",
-      //             "os": "0"
-      //           },
-      //           success: function (res) {
-      //             console.log(res)
-      //             app.globalData = res.data.data;
-      //             app.token = res.data.data.token;
-      //           },
-      //           complete() {
-      //             if (questFlag == false) {
-      //               request(method, requestHandler, app.token);
-      //               questFlag = true;
-      //             }
-      //           }
-      //         })
-      //       }
-      //     })
-      // }
+      if (res.data.status == false && res.data.message.code == 9002000) {
+        wx.login({
+          success: res => {
+            console.log(res)
+            app.code = res.code;
+            wx.request({
+              url: app.url.vx_login,
+              data: {
+                code: res.code,
+                alias: '1001'
+              },
+              method: "GET",
+              header: {
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+                "X-Access-Auth-Token": "",
+                "os": "0"
+              },
+              success: function (res) {
+                console.log(res)
+                if (res.data.status == false) {
+                  return
+                }
+                app.globalData = res.data.data;
+                app.token = res.data.data.token;
+              },
+              complete() {
+                if (questFlag == false) {
+                  request(method, requestHandler, app.token);
+                  questFlag = true;
+                }
+              }
+            })
+          }
+        })
+      }
 
     },
-    fail: function() {
+    fail: function () {
       requestHandler.fail && requestHandler.fail()
     },
-    complete: function() {
+    complete: function () {
       requestHandler.complete && requestHandler.complete();
       wx.getNetworkType({
-        success: function(res) {
+        success: function (res) {
           // console.log(res)
           if (res.networkType == 'none') {
             wx.showToast({
@@ -116,10 +118,11 @@ function request(method, requestHandler, headers) {
   })
 }
 Changeurl()
+
 function Changeurl(test) {
   // https://api.linkmoretech.cn/api 线上
   // http://test-api.linkmoretech.cn/api  测试
-  let domin = 'http://test-api.linkmoretech.cn/api'; 
+  let domin = 'https://api.linkmoretech.cn/api';
   app.url = {
     ress: ".net",
     //出口
@@ -285,7 +288,8 @@ function Changeurl(test) {
     stall: domin + "/enterprise/app/auth-record/v2.0/share-stall",
   }
 }
-function Time(number){
+
+function Time(number) {
   let date = new Date(number)
   let Y = date.getFullYear();
   let M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
@@ -295,7 +299,8 @@ function Time(number){
 
   return Y + '-' + M + '-' + D + ' ' + h + ':' + m
 }
-function Times(number){
+
+function Times(number) {
   let date = new Date(number)
   let Y = date.getFullYear();
   let M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
@@ -303,7 +308,7 @@ function Times(number){
   let h = date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
   let m = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()
 
-  return Y + '-' + M + '-' + D 
+  return Y + '-' + M + '-' + D
 }
 module.exports = {
   GET: GET,
@@ -311,6 +316,6 @@ module.exports = {
   PUT: PUT,
   DELETE: DELETE,
   Changeurl: Changeurl,
-  Time:Time,
-  Times:Times
+  Time: Time,
+  Times: Times
 }

@@ -1,0 +1,142 @@
+/* .box {
+  width: 100%;
+  height: 99.7vh;
+  background-image: linear-gradient(#fab286ad, #fff);
+  position: relative;
+  border: 1px solid #fff;
+} */
+.bg_img {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.box_top {
+  width: 690rpx;
+  height: 216rpx;
+  margin-top: 57rpx;
+  margin-left: 29rpx;
+  background: #FFF;
+  border-radius: 26rpx;
+  display: flex;
+  justify-content: flex-start;
+  /* border: 1px solid; */
+}
+
+.box_top_right {
+  margin-left: 36rpx;
+  margin-top: 56rpx;
+}
+
+.img_touxiang {
+  width: 95rpx;
+  height: 95rpx;
+  margin-left: 45rpx;
+  margin-top: 61rpx;
+}
+
+.name {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.name_text {
+  height: 34rpx;
+  line-height: 34rpx;
+  font-size: 34rpx;
+}
+
+.name_img {
+  width: 27rpx;
+  height: 27rpx;
+  margin-left: 16rpx;
+}
+
+.bind_phone {
+  height: 28rpx;
+  line-height: 28rpx;
+  font-size: 28rpx;
+  margin-top: 38rpx;
+  color: #666;
+}
+
+.box_center,
+.box_bottom {
+  width: 690rpx;
+  height: 231rpx;
+  border-radius: 26rpx;
+  background: #fff;
+  margin-top: 23rpx;
+  margin-left: 29rpx;
+  border: 1px solid #fff;
+}
+
+.box_center_title,
+.box_bottom_title {
+  font-size: 30rpx;
+  font-weight: bold;
+  height: 31rpx;
+  line-height: 31rpx;
+  margin-left: 46rpx;
+  margin-top: 29rpx;
+}
+
+.box_center_img_box {
+  width: 513rpx;
+  height: 64rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 31rpx;
+  /* border: 1px solid; */
+}
+
+.img1 {
+  width: 64rpx;
+  height: 64rpx;
+}
+
+.box_center_text {
+  width: 547rpx;
+  height: 25rpx;
+  line-height: 25rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 22rpx;
+  color: #666;
+  /* border: 1px solid; */
+}
+
+.box_center_text1 {
+  font-size: 24rpx;
+  height: 24rpx;
+  line-height: 24rpx;
+  text-align: center;
+}
+
+.box_bottom_img_box {
+  width: 215rpx;
+  height: 111rpx;
+  /* border: 1px solid; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 87rpx;
+  margin-top: 30rpx;
+}
+
+.box_bottom_text1 {
+  font-size: 24rpx;
+  height: 24rpx;
+  line-height: 24rpx;
+  color: #666;
+  /* border: 1px solid; */
+  text-align: center;
+}

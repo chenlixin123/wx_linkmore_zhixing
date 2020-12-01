@@ -8,55 +8,55 @@ Page({
    * 页面的初始数据
    */
   data: {
-    error_text:''
+    error_text: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
 
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
+  onReady: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {
+  onHide: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {
+  onUnload: function () {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
 
   },
   //跳转手机号登陆注册页面
@@ -68,18 +68,18 @@ Page({
   //微信快速绑定
   getPhoneNumbers() {
     wx.checkSession({
-      success: function(res) {
+      success: function (res) {
         console.log(res, "快速绑定")
       },
-      fail: function() {}
+      fail: function () {}
     })
   },
   //获取用户手机号
-  getPhoneNumber: function(e) {
+  getPhoneNumber: function (e) {
     let that = this
     let iv = e.detail.iv;
     let encryptedData = e.detail.encryptedData;
-    console.log(e,"wwwww");
+    console.log(e, "wwwww");
     if (e.detail.errMsg == 'getPhoneNumber:ok') {
       api.POST({
         url: app.url.open_phone,
@@ -89,35 +89,35 @@ Page({
         },
         success(res) {
           console.log(res, "获取用户手机号")
-          if(!res.data.status){
+          if (!res.data.status) {
             that.setData({
               warnToast: true,
-              error_text:res.data.message.content
-          });
-          setTimeout(() => {
+              error_text: res.data.message.content
+            });
+            setTimeout(() => {
               that.setData({
-                  hidewarnToast: true
+                hidewarnToast: true
               });
               setTimeout(() => {
-                  that.setData({
-                      warnToast: false,
-                      hidewarnToast: false,
-                  });
-                  return
+                that.setData({
+                  warnToast: false,
+                  hidewarnToast: false,
+                });
+                return
               }, 300);
-          }, 3000);
-          // wx.showToast({
-          //   title: res.data.message.content,
-          //   icon: "none"
-          // })
+            }, 3000);
+            // wx.showToast({
+            //   title: res.data.message.content,
+            //   icon: "none"
+            // })
           }
-           let loginUser = wx.getStorageSync('login-user')
-           loginUser.data.mobile = res.data.data;
-           try {
-             wx.setStorageSync('login-user', {
-               data: loginUser.data,
-             })
-           } catch (e) {}
+          let loginUser = wx.getStorageSync('login-user')
+          loginUser.data.mobile = res.data.data;
+          try {
+            wx.setStorageSync('login-user', {
+              data: loginUser.data,
+            })
+          } catch (e) {}
           let mobile = res.data.data;
           //绑定授权手机号
           api.POST({
@@ -136,7 +136,7 @@ Page({
                   api.GET({
                     url: app.url.plate_list,
                     params: {},
-                    success: function(res) {
+                    success: function (res) {
                       console.log("成功", res)
                       if (res.data.data.length == 0) {
                         console.log("没有车牌")
@@ -151,7 +151,7 @@ Page({
                         })
                       }
                     },
-                    fail: function() {
+                    fail: function () {
                       console.log("失败")
                     }
                   }, app.token)
@@ -174,7 +174,7 @@ Page({
         fail() {
 
         }
-      },app.token)
+      }, app.token)
     }
   }
 })

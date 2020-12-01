@@ -14,49 +14,90 @@
     </view>
     <image class='img_xiala' src='../../assets/icon/xiala@2x.png' catchtap='selectTap'></image>
     <view class="bottom_box">
-      
+      <view class="bottom_box_line">
+        <view class="bottom_box_line_left">
+          <image class='img_icon_tiqnqi' src='../../assets/icon/qing@3x.png'></image>
+          <view class='img_icon_text'>
+            晴
+          </view>
+          <view class='img_icon_number'>
+            22℃
+          </view>
+        </view>
+        <view class="bottom_box_line_right">
+          <view class="today_text">
+            今日限行
+          </view>
+          <view class="today_number" style="margin-right:12rpx;">
+            3
+          </view>
+          <view class="today_number">
+            9
+          </view>
+        </view>
+      </view>
+
+      <view class="bottom_box_line">
+        <view class="bottom_box_line_left">
+          <view style="font-size:28rpx;color:white;margin-right:18rpx;">
+            PM2.5
+          </view>
+          <view
+            style="color:white;font-size:26rpx;width:196rpx;height:44rpx;line-height:44rpx;background:#fece39;text-align:center;border-radius: 20px;">
+            107 轻度污染
+          </view>
+        </view>
+        <view class="bottom_box_line_right">
+          <view style="font-size:28rpx;color:white;">
+            较宜洗车
+          </view>
+        </view>
+      </view>
+
+      <view class="bottom_box_line">
+        <view class="bottom_box_line_left">
+          <view style="font-size:28rpx;color:white;margin-right:18rpx;">
+            2020年11月20 星期五 农历十月初六
+          </view>
+        </view>
+      </view>
+
     </view>
     <image class='img_beijing' src='../../assets/img/bg@2x.png'></image>
   </view>
   <!-- 找寻停车场 -->
   <view class="search_stop" wx:if="{{ loading_display == false}}">
-    <view class="search_stop_img">
-      图片
-    </view>
+    <image class="search_stop_img" src="../../assets/icon/sousuo@2x.png"></image>
     <view class="search_stop_text">
       <view class="search_stop_text_top">
-        凌猫全场景演示车区 B1-002
+        找停车场
       </view>
+      <!-- <text class="search_stop_text_top">找停车场</text> -->
       <view class="search_stop_text_bottom">
-        有效期：2020-12-26
+        附近1000米共有30个停车场
       </view>
     </view>
   </view>
   <!-- 我的车位列表 -->
-  <view wx:if="{{nocarmodule == false}}" class="my_stop" wx:for="{{my_data}}" wx:for-item='item' wx:for-index='index'
-    wx:key='index' bindtap="mycar_tap">
-    <view class="my_stop_img">
-      图片{{index}}
-    </view>
-    <view class="my_stop_text">
-      <view class="my_stop_text_top">
+  <view wx:if="{{nocarmodule == false}}" class="search_stop" wx:for="{{my_data}}" wx:for-item='item' wx:for-index='index' wx:key='index' bindtap="mycar_tap">
+    <image class="my_stop_img" src="../../assets/icon/my_stop.png"></image>
+    <view class="search_stop_text">
+      <view class="search_stop_text_top">
         {{item.preName}} {{item.stallName}}
       </view>
-      <view class="my_stop_text_bottom">
+      <view class="search_stop_text_bottom">
         有效期：{{item.validity}}
       </view>
     </view>
   </view>
   <!-- 我的车位 -->
-  <view class="my_stop" bindtap="mycar_tap_nocarmodule" wx:if="{{nocarmodule == true}}">
-    <view class="my_stop_img">
-      图片
-    </view>
-    <view class="my_stop_text">
-      <view class="my_stop_text_top">
+  <view class="search_stop"  bindtap="mycar_tap_nocarmodule" wx:if="{{nocarmodule == true}}">
+    <image class="my_stop_img" src="../../assets/icon/my_stop.png"></image>
+    <view class="search_stop_text">
+      <view class="search_stop_text_top">
         我的车位
       </view>
-      <view class="my_stop_text_bottom">
+      <view class="search_stop_text_bottom">
         暂无
       </view>
     </view>

@@ -3,7 +3,8 @@
     <view class='add-plate' bindtap='goAddPlate'>添加车牌号</view>
     <view class='plate-list' wx:for="{{plateList}}" wx:key="index">
       <text>{{item.vehMark}}</text>
-      <image catchtap='delPlate' data-platenumber='{{item.vehMark}}' data-plateid='{{item.id}}' class='del-img' src='../../assets/img/chepaihaoguanli_cuowu@3x.png'></image>
+      <image catchtap='delPlate' data-platenumber='{{item.vehMark}}' data-plateid='{{item.id}}' class='del-img'
+        src='../../assets/img/chepaihaoguanli_cuowu@3x.png'></image>
     </view>
   </view>
 </view>
@@ -19,6 +20,6 @@
 </view>
 
 <!-- loading -->
-  <view style='display:{{loading}}' class='loadingq'>
-    <view class='load-txtq'>加载中请稍候...</view>
-  </view>
+<view style='display:{{loading}}' class='loadingq'>
+  <view class='load-txtq'>加载中请稍候...</view>
+</view>

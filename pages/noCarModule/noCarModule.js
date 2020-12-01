@@ -9,7 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-      show:false
+    show: false
   },
 
   /**
@@ -18,26 +18,26 @@ Page({
   onLoad: function (options) {
 
   },
-  btn(){
-      // console.log('11111111111111')
-      let that = this
-      api.GET({
-        url: app.url.plate_list,
-        success(res) {
-          console.log(res)
-          if(res.data.data.length >= 3){
-              that.setData({
-                show:true
-              })
-          }else{
-            wx.redirectTo({
-              url: '/pages/plateNumber/addPlate/addPlate?num=1',
-            })
-          }
+  btn() {
+    // console.log('11111111111111')
+    let that = this
+    api.GET({
+      url: app.url.plate_list,
+      success(res) {
+        console.log(res)
+        if (res.data.data.length >= 3) {
+          that.setData({
+            show: true
+          })
+        } else {
+          wx.redirectTo({
+            url: '/pages/plateNumber/addPlate/addPlate?num=1',
+          })
         }
-      },app.token)
+      }
+    }, app.token)
   },
-  btns(){
+  btns() {
     let that = this
     that.setData({
       show: false

@@ -1,0 +1,55 @@
+<view class="box">
+  <image class="bg_img" src="../../assets/icon/bg@2x.png"></image>
+  <view class="box_top">
+    <image class="img_touxiang" src="../../assets/icon/touxiang@2x.png"></image>
+    <view class="box_top_right">
+      <view class="name">
+        <view class="name_text">张可心</view>
+        <image class="name_img" src="../../assets/icon/bianji@2x.png"></image>
+      </view>
+      <view class="bind_phone" bindtap="bind_phone">
+        绑定手机号
+      </view>
+    </view>
+  </view>
+  <view class="box_center">
+    <view class="box_center_title">常用功能</view>
+    <view class="box_center_img_box">
+      <image class="img1" src="../../assets/icon/cheliang@2x.png"></image>
+      <image class="img1" src="../../assets/icon/yonghuzhinan@2x.png"></image>
+      <image class="img1" src="../../assets/icon/lianxikefu@2x.png"></image>
+      <image class="img1" src="../../assets/icon/tousujianyi@2x.png"></image>
+    </view>
+    <view class="box_center_text">
+      <view class="box_center_text1">
+        我的车辆
+      </view>
+      <view class="box_center_text1">
+        用户指南
+      </view>
+      <view class="box_center_text1">
+        联系客服
+      </view>
+      <view class="box_center_text1">
+        投诉建议
+      </view>
+    </view>
+  </view>
+  <view class="box_bottom">
+    <view class="box_bottom_title">其他</view>
+    <view class="box_bottom_img_box">
+      <view>
+        <image class="img1" src="../../assets/icon/guanyu@2x.png"></image>
+        <view class="box_bottom_text1">
+          关于
+        </view>
+      </view>
+      <view>
+        <image class="img1" src="../../assets/icon/shezhi@2x.png"></image>
+        <view class="box_bottom_text1">
+          设置
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

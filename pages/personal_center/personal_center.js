@@ -1,15 +1,12 @@
-//获取应用实例
-const app = getApp()
-//引入network
+// pages/personal_center.js
 import api from "../../utils/network.js"
-import util from "../../utils/util.js"
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    show: false
+
   },
 
   /**
@@ -18,6 +15,7 @@ Page({
   onLoad: function (options) {
 
   },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -65,5 +63,11 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  //绑定手机号
+  bind_phone() {
+    wx.navigateTo({
+      url: '/pages/bindPhone/bind',
+    })
   }
 })

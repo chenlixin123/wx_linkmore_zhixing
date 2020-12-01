@@ -39,88 +39,101 @@ page {
   top: 26rpx;
 }
 
-.starts{
-width: 100%;
-height: 100%;
-position: fixed;
-top: 0;
-left: 0;
-background: rgba(0,0,0,0.6);
-z-index: 1100;
+.starts {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1100;
 }
-.begin{
-width: 80%;
-background: #fff;
-position: absolute;
-top: 36%;
-left: 10%;
-border-radius: 14rpx; 
-font-size: 28rpx;
-color: #666;
-border-bottom: 1rpx solid #f0efef;
-padding: 36rpx 0;
-text-align:center;
+
+.begin {
+  width: 80%;
+  background: #fff;
+  position: absolute;
+  top: 36%;
+  left: 10%;
+  border-radius: 14rpx;
+  font-size: 28rpx;
+  color: #666;
+  border-bottom: 1rpx solid #f0efef;
+  padding: 36rpx 0;
+  text-align: center;
 }
-.con{
-width: 100%;
-text-align: center;
-margin-top: 40rpx;
-margin-bottom: 70rpx;
+
+.con {
+  width: 100%;
+  text-align: center;
+  margin-top: 40rpx;
+  margin-bottom: 70rpx;
 }
-.caos{
-width: 100%;
-font-size: 30rpx;
-color: #333;
-display:flex;
-justify-content: space-between;
-margin:0 auto;
-margin-top:30rpx;
+
+.caos {
+  width: 100%;
+  font-size: 30rpx;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  margin-top: 30rpx;
 }
-.ones{
-width: 50%;
-text-align: center;
+
+.ones {
+  width: 50%;
+  text-align: center;
 }
-.fails{
-width:90%;
-height: 0.1rpx;
-margin: 0 auto;
-border-top: 0.5px solid #cfcccc;
+
+.fails {
+  width: 90%;
+  height: 0.1rpx;
+  margin: 0 auto;
+  border-top: 0.5px solid #cfcccc;
 }
-.one{
-color: #999999;
+
+.one {
+  color: #999999;
 }
-.on{
-color: #f66913;
+
+.on {
+  color: #f66913;
 }
-.begins{
-width: 80%;
-background: #fff;
-position: absolute;
-top: 36%;
-left: 10%;
-border-radius: 14rpx; 
-font-size: 28rpx;
-color: #666;
-border-bottom: 1rpx solid #f0efef;
-box-sizing: border-box;
-padding: 36rpx 0rpx;
-text-align: center;
+
+.begins {
+  width: 80%;
+  background: #fff;
+  position: absolute;
+  top: 36%;
+  left: 10%;
+  border-radius: 14rpx;
+  font-size: 28rpx;
+  color: #666;
+  border-bottom: 1rpx solid #f0efef;
+  box-sizing: border-box;
+  padding: 36rpx 0rpx;
+  text-align: center;
 }
-.cons{
+
+.cons {
   margin-bottom: 30rpx;
   font-size: 36rpx;
   color: black;
 }
-.conss{
+
+.conss {
   margin-bottom: 20rpx;
 }
-.co{
+
+.co {
   margin-bottom: 10rpx;
 }
-.one1{
+
+.one1 {
   color: #f66913;
 }
-.show{
+
+.show {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.4);
@@ -128,47 +141,54 @@ text-align: center;
   top: 0;
   right: 0;
 }
-.shoes{
+
+.shoes {
   width: 80%;
   margin: 55% auto;
   background: #fff;
   border-radius: 12rpx;
 }
-.shoes .shan{
+
+.shoes .shan {
   width: 100%;
   font-size: 34rpx;
   color: #333;
-  line-height:110rpx;
-  text-indent:1.5em;
+  line-height: 110rpx;
+  text-indent: 1.5em;
 }
-.content{
+
+.content {
   width: 90%;
   font-size: 34rpx;
   color: #666;
-  margin-bottom:40rpx;
-  margin-left:40rpx;
-  line-height:60rpx;
+  margin-bottom: 40rpx;
+  margin-left: 40rpx;
+  line-height: 60rpx;
 }
-.context{
+
+.context {
   width: 100%;
   border-top: 1rpx solid #dedede;
   display: flex;
   text-align: center;
   line-height: 110rpx;
 }
-.context .fail{
+
+.context .fail {
   width: 50%;
   border-right: 1rpx solid #dedede;
   font-size: 32rpx;
   color: #f66913;
 }
-.context .conpont{
+
+.context .conpont {
   width: 50%;
   font-size: 32rpx;
   color: #969595;
 }
-.loadingq{
-   width: 312rpx;
+
+.loadingq {
+  width: 312rpx;
   height: 80rpx;
   color: #fff;
   position: fixed;
@@ -180,7 +200,8 @@ text-align: center;
   border-radius: 8rpx;
   z-index: 11000;
 }
-.load-txtq{
+
+.load-txtq {
   display: inline-block;
   line-height: 80rpx;
   margin-left: 72rpx;

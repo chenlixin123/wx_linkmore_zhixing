@@ -13,24 +13,24 @@ Page({
     battery: '',
     gatewayStatus: '',
     data: [],
-    shows2:false,
-    nums:'',
-    id:'',
+    shows2: false,
+    nums: '',
+    id: '',
     //本地经纬度
     location: {
       longitude: "116.41361",
       latitude: "39.91106"
     },
-    context:'确定删除车牌号',
-    hidden:'none',
-    shows3:false,
-    plateid:'',
-    loading:'block'
+    context: '确定删除车牌号',
+    hidden: 'none',
+    shows3: false,
+    plateid: '',
+    loading: 'block'
   },
   onLoad: function (options) {
     let self = this;
     api.GET({
-      url: app.url.plate_list,//车牌列表
+      url: app.url.plate_list, //车牌列表
       params: {},
       success(res) {
         let plateList = res.data.data;
@@ -52,8 +52,8 @@ Page({
   xiao() {
     this.setData({
       shows1: false,
-      shows2:false,
-      shows3:false
+      shows2: false,
+      shows3: false
     })
   },
 
@@ -66,7 +66,7 @@ Page({
     let longitude = that.data.location.longitude;
     let latitude = that.data.location.latitude;
     api.POST({
-      url: app.url.long_carList,//查看长租用户车位列表
+      url: app.url.long_carList, //查看长租用户车位列表
       params: {
         latitude: latitude,
         longitude: longitude
@@ -108,9 +108,9 @@ Page({
       },
       fail() {
         wx.showToast({
-          title: res.data.data.message.content,
-          icon: 'none'
-        }),
+            title: res.data.data.message.content,
+            icon: 'none'
+          }),
           self.setData({
             loading: 'none'
           })
@@ -120,42 +120,42 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
+  onReady: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {
+  onHide: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {
+  onUnload: function () {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
 
   },
   //添加车牌
@@ -171,13 +171,13 @@ Page({
       })
     }
   },
-  qu(){
+  qu() {
     this.setData({
-      hidden:'none'
+      hidden: 'none'
     })
   },
-  que(){
-    
+  que() {
+
   },
   //删除车牌
   delPlate(e) {
@@ -195,14 +195,14 @@ Page({
     console.log(oo)
     let preName = wx.getStorageSync('preName')
     let stallName = wx.getStorageSync('stallName')
-    if (e.target.dataset.platenumber == ss[0]) { 
-        let num = e.currentTarget.dataset.platenumber;
-        let plateid = e.currentTarget.dataset.plateid;
-        self.setData({
-          context: '确定删除车牌号[' + num + ']' + '?\r\n删除后将失去固定车位地锁使用权限',
-          shows3:true,
-          plateid: plateid
-        })
+    if (e.target.dataset.platenumber == ss[0]) {
+      let num = e.currentTarget.dataset.platenumber;
+      let plateid = e.currentTarget.dataset.plateid;
+      self.setData({
+        context: '确定删除车牌号[' + num + ']' + '?\r\n删除后将失去固定车位地锁使用权限',
+        shows3: true,
+        plateid: plateid
+      })
     } else {
       let num = e.currentTarget.dataset.platenumber;
       let plateid = e.currentTarget.dataset.plateid;
@@ -213,15 +213,14 @@ Page({
       })
     }
   },
-  dels(){
+  dels() {
     let self = this
     self.setData({
       shows3: false
     })
     api.DELETE({
       url: app.url.del_plate + '?id=' + self.data.plateid,
-      params: {
-      },
+      params: {},
       success(res) {
         console.log(res);
         if (res.data.status == true) {
