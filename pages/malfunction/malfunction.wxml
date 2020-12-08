@@ -1,0 +1,42 @@
+<view class='line'></view>
+<view class='box'>
+  <view class='carName'>
+    <view>
+      车位
+    </view>
+    <view>
+      {{title}}
+    </view>
+  </view>
+  <view class='title'>
+    请选择故障原因
+  </view>
+</view>
+
+<view class='titles'>
+<view class='out_border' wx:for='{{causeList}}' wx:key='index'>
+  <view class="{{index == indexs ? 'titles_two' : 'titles_one'}}" bindtap='nei_border' data-id='{{item.id}}' data-code='{{item.code}}' wx:key="index" data-index='{{index}}' data-name='{{item.name}}'>
+    {{item.name}}
+  </view>
+  </view>
+</view>
+
+<view class='boxs'>
+  <textarea placeholder="请描述具体车位故障" class='textarea' placeholder-class='placeholder_class' focus="{{focus}}" maxlength='30' bindinput='value' value='{{value}}' />
+  <view class='bottom'>{{number}}/{{numbers}}</view>
+</view>
+<button style="width:100%;height:100rpx;line-height:70rpx;" class='btn' bindtap='btn' disabled='{{ff}}'>提交</button>
+ <!-- loading加载 -->
+ <view class="loadingq_box"  wx:if="{{loading_display}}">
+    <view class='loadingq'>
+      <view class='load-txtq'>加载中请稍候...</view>
+    </view>
+  </view>
+<!-- 弹出提示框 -->
+<cover-view class='black' wx:if='{{show == true}}'>
+  <cover-view class='content'>
+    <cover-view class='content_top'>{{ss}}</cover-view>
+    <cover-view class='lines'></cover-view>
+    <cover-view class='content_bottom' bindtap='que'>确定</cover-view>
+  </cover-view>
+</cover-view>

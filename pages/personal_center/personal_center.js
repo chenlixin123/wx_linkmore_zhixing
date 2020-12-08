@@ -1,4 +1,5 @@
 // pages/personal_center.js
+const app = getApp()
 import api from "../../utils/network.js"
 Page({
 
@@ -6,14 +7,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    mobile:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let that = this
+    that.setData({
+      mobile:app.mobile
+    })
   },
 
   /**
@@ -69,5 +73,11 @@ Page({
     wx.navigateTo({
       url: '/pages/bindPhone/bind',
     })
-  }
+  },
+     //进入到车牌号管理
+     goPlateNumber() {
+      wx.navigateTo({
+         url: '/pages/plateNumber/plateNumber',
+      })
+   },
 })

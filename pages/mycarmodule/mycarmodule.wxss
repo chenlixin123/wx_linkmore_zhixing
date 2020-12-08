@@ -90,6 +90,21 @@ page {
   height: 218rpx;
   margin-left: 157rpx;
   margin-top: 185rpx;
+  position: relative;
+  /* border: 1px solid; */
+}
+
+.center_img_text {
+  width: 377rpx;
+  height: 180rpx;
+  text-align: center;
+  line-height: 180rpx;
+  font-size: 54rpx;
+  font-weight: bold;
+  color: #202020;
+  position: absolute;
+  top: 0;
+  left: 0;
   /* border: 1px solid; */
 }
 
@@ -99,8 +114,19 @@ page {
   height: 30rpx;
   line-height: 30rpx;
   color: #ff8234;
-  margin-left: 297rpx;
   margin-top: 45rpx;
+  text-align: center;
+  /* border: 1px solid; */
+}
+
+.car_numbner1 {
+  font-size: 30rpx;
+  font-weight: bold;
+  height: 30rpx;
+  line-height: 30rpx;
+  color: #f5f5f5;
+  margin-top: 45rpx;
+  text-align: center;
   /* border: 1px solid; */
 }
 
@@ -133,4 +159,52 @@ page {
 
 .bottom_btn {
   margin-left: 113rpx;
+}
+
+.weui-toast {
+  width: 250rpx;
+  height: 250rpx;
+}
+
+.weui-toast__content {
+  font-size: 30rpx;
+}
+
+.nopermissions {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+}
+
+.nopermissions_content {
+  width: 586rpx;
+  background: white;
+  border-radius: 20rpx;
+  margin: 0 auto;
+  margin-top: 400rpx;
+
+}
+
+.nopermissions_top {
+  width: 100%;
+  line-height: 74rpx;
+  box-sizing: border-box;
+  padding: 40rpx 60rpx;
+  font-size: 34rpx;
+  color: #666;
+  text-align: center;
+  border-bottom: 1rpx solid #dedede;
+}
+
+.nopermissions_bottom {
+  width: 100%;
+  height: 104rpx;
+  font-size: 32rpx;
+  color: #666;
+  text-align: center;
+  line-height: 104rpx;
 }

@@ -15,7 +15,7 @@
          src="{{CanNum == 7?'../../../assets/img/tianjiachepaihao@3x.png':'../../../assets/img/xunahzong.png'}}">
       </image>
    </view>
-   <button bindtap='addPlete' class='add-btn' data-clicknum=''>保存</button>
+   <button bindtap='addPlete' class='add-btn' loading="{{btn_loading}}" >保存</button>
    <view class='keyword' wx:if="{{keyWord==true}}">
       <view class='key-txt'>
          <text bindtap='keyDel' class='key-del'>删除</text>

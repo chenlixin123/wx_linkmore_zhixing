@@ -4,10 +4,13 @@
     <image class="img_touxiang" src="../../assets/icon/touxiang@2x.png"></image>
     <view class="box_top_right">
       <view class="name">
-        <view class="name_text">张可心</view>
+        <view class="name_text">凌猫用户</view>
         <image class="name_img" src="../../assets/icon/bianji@2x.png"></image>
       </view>
-      <view class="bind_phone" bindtap="bind_phone">
+      <view class="bind_phone" wx:if="{{mobile}}">
+        {{mobile}}
+      </view>
+      <view class="bind_phone" bindtap="bind_phone" wx:else>
         绑定手机号
       </view>
     </view>
@@ -15,13 +18,13 @@
   <view class="box_center">
     <view class="box_center_title">常用功能</view>
     <view class="box_center_img_box">
-      <image class="img1" src="../../assets/icon/cheliang@2x.png"></image>
+      <image class="img1" src="../../assets/icon/cheliang@2x.png" bindtap='goPlateNumber'></image>
       <image class="img1" src="../../assets/icon/yonghuzhinan@2x.png"></image>
       <image class="img1" src="../../assets/icon/lianxikefu@2x.png"></image>
       <image class="img1" src="../../assets/icon/tousujianyi@2x.png"></image>
     </view>
     <view class="box_center_text">
-      <view class="box_center_text1">
+      <view class="box_center_text1" bindtap='goPlateNumber'>
         我的车辆
       </view>
       <view class="box_center_text1">

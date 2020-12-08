@@ -1,0 +1,56 @@
+<view class='body'>
+  <view class='textt'>
+    <view class='titles'>{{carname}}</view>
+    <view class='name'>{{name}}</view>
+  </view>
+  <input class='put_mobile' placeholder='请输入被授权人手机号' placeholder-style="color:#cdcdcd;" bindinput='put_mobile'
+    type='number' maxlength='11'></input>
+  <input class='put_user' placeholder='请输入被授权人备注名' placeholder-style="color:#cdcdcd;" bindinput='put_user'
+    maxlength='10'></input>
+  <view class='relation'>
+    <view class="{{ind == index ? 'texts' : 'text'}}" wx:for='{{relation}}' wx:key='index' bindtap='tap'
+      data-index='{{index}}' data-datas='{{item}}'>{{item.name}}</view>
+  </view>
+  <view class='time'>
+    <input bindtap='input1' disabled='true' class='start_time' placeholder='开始时间' value='{{start_time}}'
+      placeholder-style="color:#cdcdcd;text-align:left;"></input> -
+    <input bindtap='input2' disabled='true' class='end_time' placeholder='到期时间' value='{{end_time}}'
+      placeholder-style="color:#cdcdcd;text-align:right;"></input>
+  </view>
+  <view class="{{dis == true ? 'btns' : 'btn'}}" bindtap='btn'>确认授权</view>
+  <view>
+    <!-- <view>{{year}}年{{month}}月{{day}}日</view> -->
+    <view class='box' wx:if='{{show == true}}'>
+      <picker-view indicator-style="height: 76rpx;"
+        style="width: 610rpx; height:380rpx; position: absolute; bottom:191rpx; left:9%; z-index:22; background: #f3f3f3; border-radius: 20rpx;"
+        value="{{value}}" bindchange="bindChange">
+        <picker-view-column style="width:300rpx;">
+          <view wx:for="{{times}}" wx:key='index'
+            style="line-height: 76rpx; text-align: center; font-size:36rpx; color:#333;width:250rpx;">{{item}}</view>
+        </picker-view-column>
+        <picker-view-column>
+          <view wx:for="{{hours}}" wx:key='index'
+            style="line-height: 76rpx; text-align: center;font-size:36rpx; color:#333;">{{item}}</view>
+        </picker-view-column>
+        <picker-view-column>
+          <view wx:for="{{min}}" wx:key='index'
+            style="line-height: 76rpx; text-align: center;font-size:36rpx; color:#333;">{{item}}</view>
+        </picker-view-column>
+      </picker-view>
+      <view class='time_top'>
+        <view class='title'>{{title}}</view>
+      </view>
+      <view class='time_bottom'>
+        <view class='cancel' bindtap='cancel'>取消</view>
+        <view class='confirm' bindtap='confirm'>确定</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- loading加载 -->
+<view class="loadingq_box" wx:if="{{loading_display}}">
+  <view class='loadingq'>
+    <view class='load-txtq'>加载中请稍候...</view>
+  </view>
+</view>

@@ -20,6 +20,11 @@
 </view>
 
 <!-- loading -->
-<view style='display:{{loading}}' class='loadingq'>
+<!-- <view class='loadingq'>
   <view class='load-txtq'>加载中请稍候...</view>
-</view>
+</view> -->
+<view class="loadingq_box"  wx:if="{{loading_display}}">
+    <view class='loadingq'>
+      <view class='load-txtq'>加载中请稍候...</view>
+    </view>
+  </view>

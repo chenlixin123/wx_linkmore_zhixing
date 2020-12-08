@@ -1,0 +1,36 @@
+<view class="lines"></view>
+<view class='title'>授权成功</view>
+<view class='box'>
+  <view class='carname'>
+    <view class='carnames'>{{carname}}</view>
+    <view class='name'>{{name}}</view>
+  </view>
+  <view class='user'>
+    <view class='user_left'>被授权人</view>
+    <view class='user_right'>
+      <view class='right1'>{{relationName}}</view>
+      <view class='right2'>{{username}}</view>
+    </view>
+  </view>
+  <view class='mobile'>
+    <view class='mobile_left'>手机号</view>
+    <view class='mobile_right'>{{mobile}}</view>
+  </view>
+  <view class='start_time'>
+    <view class='start_left'>开始时间</view>
+    <view class='start_right'>{{start_time}}</view>
+  </view> 
+   <view class='end_time'>
+    <view class='end_left'>到期时间</view>
+    <view class='end_right'>{{endtime}}</view>
+  </view> 
+</view>
+<view class='friend'>
+  <view class='line_left'></view>
+  <view class='text'>通知好友</view>
+  <view class='line_right'></view>
+</view>
+<view class='bottom'>
+  <button class='btn' open-type="share"></button>
+  <image class='img' src='../../assets/icon/weixin@2x.png'></image>
+</view>

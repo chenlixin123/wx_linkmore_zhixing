@@ -147,7 +147,7 @@ Page({
                         app.state = 1;
                         console.log(app.state, "app.state")
                         wx.redirectTo({
-                          url: '/pages/home/home',
+                          url: '/pages/index/index',
                         })
                       }
                     },

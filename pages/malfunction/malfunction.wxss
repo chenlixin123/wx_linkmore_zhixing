@@ -1,0 +1,144 @@
+page{
+  width: 100%;
+  height: 100%;
+}
+.line{
+  width:100%;
+  border-top:1px solid #e1e1e1;
+}
+.box{
+  box-sizing: border-box;
+  padding: 0rpx 30rpx;
+  padding-top: 34rpx;
+}
+.carName{
+  width:100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 34rpx;
+}
+.title{
+  width:200%;
+  font-size: 26rpx;
+  color: #999999;
+}
+.titles{
+  width:100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+.out_border{
+  width: 32%;
+  text-align: center;
+  margin-left: 8rpx;
+}
+.titles_one{
+  width:188rpx;
+  height:58rpx;
+  text-align: center;
+  line-height: 58rpx;
+  font-size: 24rpx;
+  color: #999999;
+  border:1px solid #999999;
+  border-radius: 60rpx;
+  margin: 0 auto;
+  margin-top:30rpx;
+}
+.titles_two{
+  width:188rpx;
+  height:58rpx;
+  text-align: center;
+  line-height: 58rpx;
+  font-size: 24rpx;
+  color: #f66913;
+  border:1px solid #f66913;
+  border-radius: 60rpx;
+  margin: 0 auto;
+  margin-top:30rpx;
+}
+.boxs{
+  box-sizing: border-box;
+  padding: 0rpx 30rpx;
+}
+.placeholder_class{
+  font-size: 26rpx;
+  color: #999999;
+}
+.textarea{
+  width:100%;
+  height: 178rpx;
+  font-size: 26rpx;
+  border:1px solid #999999;
+  margin-top:34rpx;
+  border-radius: 12rpx;
+  box-sizing: border-box;
+  padding:20rpx 20rpx;
+}
+.bottom{
+  width:100%;
+  margin-top: 28rpx;
+  font-size: 28rpx;
+  color: #999999;
+  text-align: right;
+}
+.btn{
+  width: 100%;
+  background: #f66913;
+  font-size: 36rpx;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 0px;
+  position: absolute;
+  left:0;
+  bottom:0;
+}
+.black{
+width:100%;
+height:100%;
+position: fixed;
+top:0;
+left:0;
+background: rgba(0, 0, 0, 0.5);
+z-index: 9999;
+}
+.content{
+width:80%;
+height: 260rpx;
+position: fixed;
+top:38%;
+left:10%;
+background: white;
+border-radius: 14rpx;
+text-align: center;
+z-index: 10000;
+}
+.content_top{
+height:150rpx;
+line-height: 150rpx;
+font-size: 34rpx;
+color: #333;
+}
+.content_bottom{
+height: 110rpx;
+line-height: 110rpx;
+font-size: 32rpx;
+color: #969595;
+}
+.lines{
+width: 90%;
+height: 0.1rpx;
+margin: 0 auto;
+border-top: 0.5px solid #ece7e7;
+}
+button[disabled]:not([type]) {
+/* color: #fff;
+background-color: #888887; */
+color: #fff;
+background: #c5c1c1;
+}

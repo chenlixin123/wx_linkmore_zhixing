@@ -2,13 +2,13 @@
   <view class="box_top_line">
     <view class="box_top_line_left">
       <view class="box_top_line_left_text">
-        凌猫全场景演示车区
+        {{data.preName}}
       </view>
       <view class="box_top_line_left_number">
-        B1-002
+        {{floor}}{{floor ? '-' : ''}}{{data.stallName}}
       </view>
     </view>
-    <view class="box_top_line_right">
+    <view class="box_top_line_right" bindtap="authorization" wx:if="{{isAuthFlag == 1}}">
       <image class="box_top_img" src="../../assets/icon/shouquan.png"></image>
       <view class="box_top_line_right_text">
         分享授权
@@ -19,10 +19,10 @@
   <view class="box_top_line" style="margin-top:24rpx;">
     <view class="box_top_line_left">
       <view class="box_top_line_left_text" style="color:#666;">
-        有效期：2020-11-30
+        有效期：{{validity}}
       </view>
     </view>
-    <view class="box_top_line_right">
+    <view class="box_top_line_right" bindtap="fault">
       <image class="box_top_img" src="../../assets/icon/guzhang.png" style="width:22rpx;height:22rpx;"></image>
       <view class="box_top_line_right_text" style="margin-left:9rpx;">
         故障报修
@@ -37,17 +37,43 @@
       上次使用时间
     </view>
     <view>
-      2020-11-19 12:37
+      {{useUpLockTime}}
     </view>
   </view>
 
-  <image class="center_img" src="../../assets/icon/car.png"></image>
+  <image class="center_img" src="{{src}}">
+    <view class="center_img_text" wx:if="{{lockStatus == 1}}">
+      {{floor}}-{{data.stallName}}
+    </view>
+  </image>
 
-  <view class="car_numbner">
-    B1-002
+  <view class="{{lockStatus == 2 ? 'car_numbner' : 'car_numbner1'}}">
+    {{floor}}-{{data.stallName}}
   </view>
   <view class="bottom_btn_box">
-    <view class="top_btn">升起</view>
-    <view class="bottom_btn">降下</view>
+    <view class="top_btn" bindtap="top">升起</view>
+    <view class="bottom_btn" bindtap="bottom">降下</view>
   </view>
 </view>
+<!-- 升、降锁中提示 -->
+<view class="fadeIn" wx:if="{{loading}}">
+		<view class="weui-mask_transparent"></view>
+		<view class="weui-toast" style="height:80rpx;border-radius:8rpx;margin-top:45rpx;">
+			<view class="weui-toast__content">{{loading_text}}</view>
+		</view>
+	</view>
+
+  <!-- 是否有权限升降锁 -->
+  <view class="nopermissions" wx:if="{{nopermission == true}}">
+      <view class="nopermissions_content">
+          <view class="nopermissions_top">{{nopermissions}}</view>
+          <view class="nopermissions_bottom" bindtap="nopermissione">确定</view>
+      </view>
+ </view>
+   <!-- loading加载 -->
+   <view class="loadingq_box"  wx:if="{{loading_display}}">
+    <view class='loadingq'>
+      <view class='load-txtq'>加载中请稍候...</view>
+    </view>
+  </view>
+

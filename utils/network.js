@@ -47,7 +47,6 @@ function request(method, requestHandler, headers) {
     },
     success: function (res) {
       requestHandler.success && requestHandler.success(res);
-      console.log(res);
       if (res.data.status == false && res.data.message.code == 404) {
         wx.showToast({
           title: '该服务未在线',
@@ -60,10 +59,9 @@ function request(method, requestHandler, headers) {
         })
         // console.log('服务异常了‘’‘’‘’‘’‘’‘’‘’‘’‘’‘’‘’‘’‘')
       }
-      if (res.data.status == false && res.data.message.code == 9002000) {
+      if (res.data.status == false && res.data.message.code == 9002000 || res.data.status == false && res.data.message.code == 8003002) {
         wx.login({
           success: res => {
-            console.log(res)
             app.code = res.code;
             wx.request({
               url: app.url.vx_login,
@@ -79,7 +77,6 @@ function request(method, requestHandler, headers) {
                 "os": "0"
               },
               success: function (res) {
-                console.log(res)
                 if (res.data.status == false) {
                   return
                 }
@@ -136,7 +133,7 @@ function Changeurl(test) {
     //车区详情
     car_detiles: domin + '/prefecture/app/prefectures/v2.0/detail',
     //小程序登陆
-    vx_login: domin + '/account/app/mini/v3.0/login',
+    vx_login: domin + '/account/app/mini/wx/login',
     //发送验证码
     send_code: domin + '/account/app/mini/v2.0/sms',
     //解密手机号

@@ -2,7 +2,7 @@
 <view class="box">
   <!-- 头部天气预报等相关信息 -->
   <view class="top_text" wx:if="{{ loading_display == false}}">
-    <image class='img_touxiang' src='../../assets/icon/touxiang@2x.png'></image>
+    <image class='img_touxiang' src='../../assets/icon/touxiang@2x.png' bindtap="to_user"></image>
     <view class='select_box'>
       <view class='select' catchtap='selectTap'>
         <text class='select_text'>{{selectData[index]}}</text>
@@ -79,7 +79,8 @@
     </view>
   </view>
   <!-- 我的车位列表 -->
-  <view wx:if="{{nocarmodule == false}}" class="search_stop" wx:for="{{my_data}}" wx:for-item='item' wx:for-index='index' wx:key='index' bindtap="mycar_tap">
+  <view wx:if="{{nocarmodule == false && loading_display == false}}" class="search_stop" wx:for="{{my_data}}" wx:for-item='item'
+    wx:for-index='index' wx:key='index' bindtap="mycar_tap" data-datas="{{item}}">
     <image class="my_stop_img" src="../../assets/icon/my_stop.png"></image>
     <view class="search_stop_text">
       <view class="search_stop_text_top">
@@ -91,7 +92,7 @@
     </view>
   </view>
   <!-- 我的车位 -->
-  <view class="search_stop"  bindtap="mycar_tap_nocarmodule" wx:if="{{nocarmodule == true}}">
+  <view class="search_stop" bindtap="mycar_tap_nocarmodule" wx:if="{{nocarmodule == true && loading_display == false}}">
     <image class="my_stop_img" src="../../assets/icon/my_stop.png"></image>
     <view class="search_stop_text">
       <view class="search_stop_text_top">
@@ -111,10 +112,9 @@
     </view>
   </view>
   <!-- loading加载 -->
-  <view class="weui-loadmore" wx:if="{{loading_display}}">
-    <text class="weui-primary-loading">
-      <i class="weui-primary-loading__dot"></i>
-    </text>
-    <text class="weui-loadmore__tips">正在加载</text>
+  <view class="loadingq_box"  wx:if="{{loading_display}}">
+    <view class='loadingq'>
+      <view class='load-txtq'>加载中请稍候...</view>
+    </view>
   </view>
 </view>

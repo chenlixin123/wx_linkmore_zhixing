@@ -21,6 +21,7 @@ App({
   userNames: '', //昵称
   shows: false,
   low: 0,
+  mobile:'',
   /**
    * 本地服务器
    */

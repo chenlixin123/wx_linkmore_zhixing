@@ -8,8 +8,10 @@
     "pages/plateNumber/plateNumber",
     "pages/carClause/carClause",
     "pages/noCarModule/noCarModule",
-    "pages/personal_center/personal_center"
-    
+    "pages/personal_center/personal_center",
+    "pages/malfunction/malfunction",
+    "pages/confirmImpower/confirmImpower",
+    "pages/succeedImpower/succeedImpower"
   ],
   "permission": {
     "scope.userLocation": {
