@@ -128,6 +128,7 @@ Page({
               app.newUserFlag = res.data.data.newUserFlag;
               app.globalData = res.data.data;
               if (res.data.status == true) {
+                app.login = true
                 if (app.newUserFlag == 1) {
                   wx.redirectTo({
                     url: '/pages/plateNumber/addPlate/addPlate',

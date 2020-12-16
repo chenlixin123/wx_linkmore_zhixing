@@ -17,6 +17,7 @@ Page({
     data:'',
     floor:'',
     useUpLockTime:'',
+    downLockTime:'',
     nopermission:'',
     nopermissions:'车位无法使用，请通过物业管理人员开启车位使用权限',
     src:'',
@@ -26,6 +27,7 @@ Page({
     loading_display:true,
     setInterval:'',
     validity:'',//有效期
+    status:''
   },
 
   /**
@@ -37,75 +39,8 @@ Page({
     let that = this
     that.setData({
       stallId:options.stallId,
+      loading_display:true
     })
-    //  api.POST({
-    //   url: app.url.long_carList2,
-    //   params: {
-    //     latitude: app.latitude,
-    //     longitude: app.longitude
-    //   },
-    //   success(res) {
-    //     if (res.data.status == true) {
-    //       res.data.data.rentPres.map(res => {
-    //         that.setData({
-    //           preId: res.preId,
-    //           pathFlag: res.pathFlag, 
-    //           entranceFlag: res.entranceFlag,
-    //           planeId: res.planeId
-    //         })
-    //         res.rentPreStalls.map(res => {
-    //           if(res.stallId == that.data.stallId){
-    //             that.setData({
-    //               data:res,
-    //               floor:res.underLayer.split('层')[0],
-    //               useUpLockTime: res.useUpLockTime ? api.Time(res.useUpLockTime) : '无',
-    //               loading_display:false
-    //             })
-    //             if (res.operateAuthFlag == 0) {
-    //               that.setData({
-    //                 nopermission: true
-    //               })
-    //             } else {
-    //               that.setData({
-    //                 nopermission: false
-    //               })
-    //             }
-    //             if (res.userStatus == 1){
-    //               wx.setNavigationBarTitle({
-    //                 title: '我的车位'
-    //               })
-    //             }else{
-    //               wx.setNavigationBarTitle({
-    //                 title: '授权车位'
-    //               })
-    //             }
-    //             that.setData({
-    //               lockStatus: res.lockStatus,
-    //               // isAuthFlag:res.isAuthFlag
-    //             })
-    //               if (res.lockStatus == 1) { //判断车锁状态 1升起 2降下
-    //                 that.setData({
-    //                   src: '../../assets/img/tupian@2x.png'
-    //                 })
-    //               } else {
-    //                 that.setData({
-    //                   src: '../../assets/img/car.png'
-    //                 })
-    //               }
-    //           }
-    //         })
-    //       })
-    //     }else{
-    //       // console.log(res.data.message.content)
-    //       wx.showToast({
-    //         title: res.data.message.content,
-    //       })
-    //       that.setData({
-    //         loading_display:false
-    //       })
-    //     }
-    //   }
-    // }, app.token)
   },
   /**
    * 生命周期函数--0
@@ -116,9 +51,9 @@ Page({
   //渲染车场数据
   list(){
     let that = this
-    that.setData({
-      loading_display:true
-    })
+    // that.setData({
+    //   loading_display:true
+    // })
     api.POST({
       url: app.url.long_carList2,
       params: {
@@ -139,9 +74,9 @@ Page({
                 console.log(res)
                 that.setData({
                   data:res,
-                  floor:res.underLayer.split('层')[0],
+                  floor:res.underLayer,
                   useUpLockTime: res.useUpLockTime ? api.Time(res.useUpLockTime) : '无',
-                  loading_display:false,
+                  downLockTime:res.downLockTime ? api.Time(res.downLockTime) : '无',
                   validity:api.Times(res.validity)
                 })
                 if (res.operateAuthFlag == 0) {
@@ -168,11 +103,13 @@ Page({
                 })
                   if (res.lockStatus == 1) { //判断车锁状态 1升起 2降下
                     that.setData({
-                      src: '../../assets/img/tupian@2x.png'
+                      src: '../../assets/img/tupian@2x.png',
+                      loading_display:false,
                     })
                   } else {
                     that.setData({
-                      src: '../../assets/img/car.png'
+                      src: '../../assets/img/car.png',
+                      loading_display:false,
                     })
                   }
               }
@@ -240,30 +177,82 @@ Page({
   onShareAppMessage: function () {
 
   },
+  list2(){
+    let that = this
+    api.POST({
+      url: app.url.long_carList2,
+      params: {
+        latitude: app.latitude,
+        longitude: app.longitude
+      },
+      success(res) {
+        if (res.data.status == true) {
+          res.data.data.rentPres.map(res => {
+            res.rentPreStalls.map(res => {
+              if(res.stallId == that.data.stallId){
+                that.setData({
+                  useUpLockTime: res.useUpLockTime ? api.Time(res.useUpLockTime) : '无',
+                  downLockTime:res.downLockTime ? api.Time(res.downLockTime) : '无',
+                })
+                console.log('赋值了')
+                that.setData({
+                  lockStatus: res.lockStatus,
+                  isAuthFlag:res.isAuthFlag
+                })
+                  if (res.lockStatus == 1) { //判断车锁状态 1升起 2降下
+                    that.setData({
+                      src: '../../assets/img/tupian@2x.png',
+                    })
+                    console.log('等于11111')
+                  } else {
+                    that.setData({
+                      src: '../../assets/img/car.png',
+                    })
+                    console.log('等于22222')
+                  }
+                  if(that.data.status == 0){
+                    if(!res.useUpLockTime){
+                      that.list2()
+                    }
+                  }else if(that.data.status == 1){
+                    if(!res.downLockTime){
+                      that.list2()
+                    }
+                  }
+
+              }
+            })
+          })
+        }
+      }
+    }, app.token)
+  },
   //升锁
   top(){
     console.log('升锁')
     let that = this
+    that.setData({
+      status:0
+    })
     if (that.data.data.operateAuthFlag == 0){
         that.setData({
           nopermission:true
         })
         return
     }
-
     if (that.data.data.isSelfUser == 1){
-      wx.showModal({
-        content: '车位正在使用中,确认上方无车\r\n\r\n再升起地锁',
-        confirmText: "升起", //默认是“确定”
-        confirmColor: '#666', //确定文字的颜色
-        cancelText: "取消", //默认是“取消”
-        cancelColor: '#666', //取消文字的颜色
-        success(res){
-          if (res.cancel) {
-            //点击取消
-          } else if (res.confirm) {
+      // wx.showModal({
+      //   content: '车位正在使用中,确认上方无车\r\n\r\n再升起地锁',
+      //   confirmText: "升起", //默认是“确定”
+      //   confirmColor: '#666', //确定文字的颜色
+      //   cancelText: "取消", //默认是“取消”
+      //   cancelColor: '#666', //取消文字的颜色
+      //   success(res){
+      //     if (res.cancel) {
+      //       //点击取消
+      //     } else if (res.confirm) {
             //点击确定
-            if (that.data.self == true) {
+            // if (that.data.self == true) {
               that.setData({
                 loading: true,
                 loading_text: "升锁中请稍候",
@@ -286,10 +275,12 @@ Page({
                         title: '车位锁升起成功',
                         icon: 'none'
                       })
-                        that.setData({
-                          lockStatus: 1,
-                          src: '../../assets/img/tupian@2x.png',
-                        })
+                      that.list2()
+                      console.log('升起成功')
+                        // that.setData({
+                        //   lockStatus: 1,
+                        //   src: '../../assets/img/tupian@2x.png',
+                        // })
                     }, 1000)
                     wx.setStorageSync('oo', false)
                   } else {
@@ -324,10 +315,10 @@ Page({
                   })
                 },
               }, app.token)
-            }
-          }
-        }
-      })
+            // }
+      //     }
+      //   }
+      // })
   }else{
       that.setData({
         loading: true,
@@ -341,21 +332,21 @@ Page({
           parkingStatus: 0   //0未知 1到达 2未到达
         },
         success(res) {
-          console.log(res)
           if (res.data.status == true) {
             that.setData({
               loading: false
             })
-
             setTimeout(() => {
               wx.showToast({
                 title: '车位锁升起成功',
                 icon: 'none'
               })
-              that.setData({
-                lockStatus: 1,
-                src: '../../assets/img/tupian@2x.png'
-              })
+              that.list2()
+              console.log('升起成功')
+              // that.setData({
+              //   lockStatus: 1,
+              //   src: '../../assets/img/tupian@2x.png'
+              // })
             }, 1000)
             wx.setStorageSync('oo', false)
           } else {
@@ -395,6 +386,9 @@ Page({
   bottom(){
     console.log('降锁')
     let that = this
+    that.setData({
+      status:1
+    })
     if (that.data.data.operateAuthFlag == 0) {
       that.setData({
         nopermission: true
@@ -402,16 +396,16 @@ Page({
       return
     }
     if (that.data.data.isSelfUser == 1) {
-      wx.showModal({
-        content: '车位正在使用中,确认上方无车\r\n\r\n再降下地锁',
-        confirmText: "降下", //默认是“确定”
-        confirmColor: '#666', //确定文字的颜色
-        cancelText: "取消", //默认是“取消”
-        cancelColor: '#666', //取消文字的颜色
-        success(res) {
-          if (res.cancel) {
-            //点击取消
-          } else if (res.confirm) {
+      // wx.showModal({
+        // content: '车位正在使用中,确认上方无车\r\n\r\n再降下地锁',
+        // confirmText: "降下", //默认是“确定”
+        // confirmColor: '#666', //确定文字的颜色
+        // cancelText: "取消", //默认是“取消”
+        // cancelColor: '#666', //取消文字的颜色
+        // success(res) {
+          // if (res.cancel) {
+          //   //点击取消
+          // } else if (res.confirm) {
             //点击确定
             that.setData({
               loading_text:'降锁中请稍候',
@@ -432,10 +426,12 @@ Page({
                       title: '车位锁降下成功',
                       icon: 'none'
                     })
-                    that.setData({
-                      lockStatus: 2,
-                      src: '../../assets/img/car.png'
-                    })
+                    that.list2()
+                    console.log('降下成功')
+                    // that.setData({
+                    //   lockStatus: 2,
+                    //   src: '../../assets/img/car.png'
+                    // })
                   }, 1000)
                   wx.setStorageSync('oo', true)
                   that.setData({
@@ -473,9 +469,9 @@ Page({
                 })
               },
             }, app.token)
-          }
-        }
-        })
+          // }
+        // }
+        // })
       
     }else{
       that.setData({
@@ -497,10 +493,12 @@ Page({
                 title: '车位锁降下成功',
                 icon: 'none'
               })
-              that.setData({
-                lockStatus: 2,
-                src: '../../assets/img/car.png'
-              })
+              that.list2()
+              console.log('降下成功')
+              // that.setData({
+              //   lockStatus: 2,
+              //   src: '../../assets/img/car.png'
+              // })
             }, 1000)
             wx.setStorageSync('oo', true)
             that.setData({

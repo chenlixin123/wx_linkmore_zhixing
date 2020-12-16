@@ -1,0 +1,21 @@
+
+page{
+  background: #fafafa;
+}
+.content{
+  width: 100%;
+  background: #fff;
+  margin-top: 20rpx;
+}
+.content view{
+  width: 690rpx;
+  margin: 0 30rpx;
+  height: 90rpx;
+  border-bottom: 1rpx solid #eee;
+  line-height: 90rpx;
+  font-size: 30rpx;
+  color: #454245;
+}
+view.last{
+  border-bottom: none;
+}

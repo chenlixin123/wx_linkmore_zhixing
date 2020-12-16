@@ -22,6 +22,9 @@ App({
   shows: false,
   low: 0,
   mobile:'',
+  nickname:'',
+  username:'',
+  login:false,
   /**
    * 本地服务器
    */

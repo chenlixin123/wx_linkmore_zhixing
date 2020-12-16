@@ -2,10 +2,20 @@
   <image class="bg_img" src="../../assets/icon/bg@2x.png"></image>
   <view class="box_top">
     <image class="img_touxiang" src="../../assets/icon/touxiang@2x.png"></image>
+
     <view class="box_top_right">
-      <view class="name">
-        <view class="name_text">凌猫用户</view>
-        <image class="name_img" src="../../assets/icon/bianji@2x.png"></image>
+      <view class="name" wx:if="{{input_true == false}}" bindtap="setname">
+        <view class="name_text">{{username}}</view>
+        <image class="name_img" src="../../assets/icon/bianji@2x.png" bindtap="setname"></image>
+      </view>
+      <view class="name1" wx:if="{{input_true == true}}">
+        <input class="input" maxlength="15" type="text" value="{{input_value}}" bindinput="input_bind" />
+        <view class="img_box" bindtap="name_ok">
+          <image class="img_ok" src="../../assets/icon/dui@2x.png" bindtap="name_ok"></image>
+        </view>
+        <view class="img_box" bindtap="name_cancel">
+          <image class="img_cancle" src="../../assets/icon/cha@2x.png" bindtap="name_cancel"></image>
+        </view>
       </view>
       <view class="bind_phone" wx:if="{{mobile}}">
         {{mobile}}
@@ -14,26 +24,28 @@
         绑定手机号
       </view>
     </view>
+
+
   </view>
   <view class="box_center">
     <view class="box_center_title">常用功能</view>
     <view class="box_center_img_box">
       <image class="img1" src="../../assets/icon/cheliang@2x.png" bindtap='goPlateNumber'></image>
-      <image class="img1" src="../../assets/icon/yonghuzhinan@2x.png"></image>
-      <image class="img1" src="../../assets/icon/lianxikefu@2x.png"></image>
-      <image class="img1" src="../../assets/icon/tousujianyi@2x.png"></image>
+      <image class="img1" src="../../assets/icon/yonghuzhinan@2x.png" bindtap='goNorth'></image>
+      <image class="img1" src="../../assets/icon/lianxikefu@2x.png" bindtap='call'></image>
+      <image class="img1" src="../../assets/icon/tousujianyi@2x.png" bindtap="complaint"></image>
     </view>
     <view class="box_center_text">
       <view class="box_center_text1" bindtap='goPlateNumber'>
         我的车辆
       </view>
-      <view class="box_center_text1">
+      <view class="box_center_text1" bindtap='goNorth'>
         用户指南
       </view>
-      <view class="box_center_text1">
+      <view class="box_center_text1" bindtap='call'>
         联系客服
       </view>
-      <view class="box_center_text1">
+      <view class="box_center_text1" bindtap="complaint">
         投诉建议
       </view>
     </view>
@@ -41,18 +53,18 @@
   <view class="box_bottom">
     <view class="box_bottom_title">其他</view>
     <view class="box_bottom_img_box">
-      <view>
+      <view bindtap="aboutLm">
         <image class="img1" src="../../assets/icon/guanyu@2x.png"></image>
         <view class="box_bottom_text1">
           关于
         </view>
       </view>
-      <view>
+      <!-- <view bindtap='setting'>
         <image class="img1" src="../../assets/icon/shezhi@2x.png"></image>
         <view class="box_bottom_text1">
           设置
         </view>
-      </view>
+      </view> -->
     </view>
   </view>
 </view>

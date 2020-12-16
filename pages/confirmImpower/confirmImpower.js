@@ -469,7 +469,7 @@ Page({
               loading_display: false
             })
             setTimeout(() => {
-              wx.navigateTo({
+              wx.redirectTo({
                 url: '/pages/succeedImpower/succeedImpower?start_time=' + that.data.start_time + '&endtime=' + that.data.end_time + '&mobile=' + that.data.mobile + '&username=' + that.data.username + '&relationName=' + that.data.relationName + '&carname=' + that.data.carname + '&name=' + that.data.name + '&stallId=' + that.data.stallId
               })
             }, 1000)

@@ -1,0 +1,46 @@
+page{
+  background: #fafafa;
+}
+.error-text{
+  width: 669rpx;
+  height: 312rpx;
+  padding: 10rpx;
+  border-radius: 12rpx;
+  /* border: 1px solid #454245; */
+  background: #fff;
+  position: absolute;
+  top: 20rpx;
+}
+.txt{
+  /* //margin: 90rpx !important; */
+  margin-top: 100rpx;
+  color: #c2c1c1;
+  font-size: 26rpx;
+}
+.error-inNum{
+  margin-top: 300rpx;
+  font-size: 24rpx;
+  color: #666;
+  float: right;
+}
+.car-error{
+  width: 690rpx;
+  margin: 70rpx 0 0 30rpx;
+}
+.error-btn{
+  background: #d4d4d4 !important;
+  border-radius: 60rpx;
+  font-size: 38rpx;
+  color: #fff !important;
+  text-align: center;
+  
+  margin: 0 0 0 106rpx; 
+  position: absolute;
+  bottom: 550rpx;
+}
+button[class="error-btn"]::after {
+  border: 0;
+} 
+.error-btn-active{
+  background: #f66913 !important;
+}

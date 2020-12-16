@@ -232,6 +232,7 @@ Page({
       success: function (res) {
         console.log(res)
         if (res.data.status == true) {
+          app.login = true
           let globalData = res.data.data;
           wx.setStorage({
             key: 'codeMsgs',

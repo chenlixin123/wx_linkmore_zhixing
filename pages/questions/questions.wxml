@@ -1,0 +1,5 @@
+<view class='content'>
+   <view wx:for="{{list}}" bindtap="entry" wx:key="*this" data-url="{{item.url}}">
+   {{item.title}}
+   </view>
+</view>

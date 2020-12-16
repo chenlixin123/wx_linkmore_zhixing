@@ -2,18 +2,19 @@
 <view class="box">
   <!-- 头部天气预报等相关信息 -->
   <view class="top_text" wx:if="{{ loading_display == false}}">
-    <image class='img_touxiang' src='../../assets/icon/touxiang@2x.png' bindtap="to_user"></image>
-    <view class='select_box'>
-      <view class='select' catchtap='selectTap'>
-        <text class='select_text'>{{selectData[index]}}</text>
+    <view class="head_box">
+      <view class="head_box_top">
+        <image class='img_touxiang' src='../../assets/icon/touxiang@2x.png' bindtap="to_user"></image>
+        <!-- <view class="username_text">{{username}}</view> -->
       </view>
-      <view class='option_box' style='height:{{show?(selectData.length>5?300:selectData.length*60):0}}rpx;'>
-        <text class='option' style='{{index==selectData.length-1&&"border:0;"}}' wx:for='{{selectData}}' wx:key='this'
-          data-index='{{index}}' catchtap='optionTap'>{{item}}</text>
-      </view>
+    <view class="select_box">
+      {{city_name}}
     </view>
-    <image class='img_xiala' src='../../assets/icon/xiala@2x.png' catchtap='selectTap'></image>
-    <view class="bottom_box">
+    </view>
+
+
+
+    <!-- <view class="bottom_box">
       <view class="bottom_box_line">
         <view class="bottom_box_line_left">
           <image class='img_icon_tiqnqi' src='../../assets/icon/qing@3x.png'></image>
@@ -36,7 +37,6 @@
           </view>
         </view>
       </view>
-
       <view class="bottom_box_line">
         <view class="bottom_box_line_left">
           <view style="font-size:28rpx;color:white;margin-right:18rpx;">
@@ -53,31 +53,32 @@
           </view>
         </view>
       </view>
-
       <view class="bottom_box_line">
         <view class="bottom_box_line_left">
           <view style="font-size:28rpx;color:white;margin-right:18rpx;">
-            2020年11月20 星期五 农历十月初六
+            {{now_Time}} {{getWeekDate}} 农历十月初六
           </view>
         </view>
       </view>
+    </view> -->
 
-    </view>
+
     <image class='img_beijing' src='../../assets/img/bg@2x.png'></image>
   </view>
+
+  
   <!-- 找寻停车场 -->
-  <view class="search_stop" wx:if="{{ loading_display == false}}">
+  <!-- <view class="search_stop" wx:if="{{ loading_display == false}}">
     <image class="search_stop_img" src="../../assets/icon/sousuo@2x.png"></image>
     <view class="search_stop_text">
       <view class="search_stop_text_top">
         找停车场
       </view>
-      <!-- <text class="search_stop_text_top">找停车场</text> -->
       <view class="search_stop_text_bottom">
         附近1000米共有30个停车场
       </view>
     </view>
-  </view>
+  </view> -->
   <!-- 我的车位列表 -->
   <view wx:if="{{nocarmodule == false && loading_display == false}}" class="search_stop" wx:for="{{my_data}}" wx:for-item='item'
     wx:for-index='index' wx:key='index' bindtap="mycar_tap" data-datas="{{item}}">

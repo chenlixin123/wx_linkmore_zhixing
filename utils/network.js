@@ -121,7 +121,6 @@ function Changeurl(test) {
   // http://test-api.linkmoretech.cn/api  测试
   let domin = 'https://api.linkmoretech.cn/api';
   app.url = {
-    ress: ".net",
     //出口
     exit: domin + '/prefecture/app/prefectures/v2.0/entrance-list',
     //刷新
@@ -306,6 +305,15 @@ function Times(number) {
   let m = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()
 
   return Y + '-' + M + '-' + D
+}function now_Time() {
+  let date = new Date()
+  let Y = date.getFullYear();
+  let M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
+  let D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
+  let h = date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
+  let m = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()
+
+  return Y + '-' + M + '-' + D
 }
 module.exports = {
   GET: GET,
@@ -314,5 +322,6 @@ module.exports = {
   DELETE: DELETE,
   Changeurl: Changeurl,
   Time: Time,
-  Times: Times
+  Times: Times,
+  now_Time:now_Time
 }

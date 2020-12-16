@@ -159,24 +159,6 @@ Page({
       })
       //return false;
     }
-    wx.getStorage({
-      key: 'abc',
-      success: function (res) {
-        console.log(res.data, "KKKKKKKK")
-        that.setData({
-          obj: res.data
-        })
-      },
-    })
-    if (that.data.obj != "") {
-      wx.navigateTo({
-        url: '/pages/parklot/parklot?groupId=' + that.data.obj.groupId + "&prefectureId=" + that.data.obj.prefectureId + "&ordersource=" + 2,
-      })
-      console.log(that.data.obj, "PPPPPPPPPPPPPPPPP")
-      wx.removeStorage({
-        key: 'abc'
-      })
-    }
     that.data.carlist.map((res) => {
       console.log(res, 'ppppppppppppppppppppp' + that.data.zhData)
       if (res.vehMark == nums) {
@@ -249,7 +231,7 @@ Page({
                             url: '/pages/noCarModule/noCarModule',
                           })
                         } else if (parameter == true) {
-                          wx.redirectTo({
+                          wx.reLaunch({
                             url: '/pages/index/index', //跳转到首页
                           })
                         }
@@ -326,16 +308,16 @@ Page({
                     let parameter = res.data.data;
                     if (res.data.status == true) {
                       if (parameter == false) {
-                        wx.navigateTo({
+                        wx.redirectTo({
                           url: '/pages/noCarModule/noCarModule',
                         })
                       } else if (parameter == true) {
-                        wx.redirectTo({
+                        wx.reLaunch({
                           url: '/pages/index/index', //跳转到首页
                         })
                       }
                     } else {
-                      wx.navigateTo({
+                      wx.redirectTo({
                         url: '/pages/noCarModule/noCarModule',
                       })
                     }

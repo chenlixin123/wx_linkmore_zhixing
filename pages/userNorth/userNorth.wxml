@@ -1,0 +1,14 @@
+
+<view class='bill-true'>
+   
+   <view class='group'>
+      <view class='list' wx:for="{{list}}" wx:key="*this">
+         <view data-item="{{ item.id }}" data-url="{{ item.url }}" bindtap='entry'>{{ item.title }}</view>
+      </view>
+   </view>
+</view>
+
+ <!-- loading -->
+  <view style='display:{{loading}}' class='loadingq'>
+    <view class='load-txtq'>加载中请稍候...</view>
+  </view>

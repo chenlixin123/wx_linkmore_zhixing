@@ -1,0 +1,9 @@
+<view class="content">
+  <view class="list">
+    <!-- <view bindtap="aboutLm">关于凌猫</view> -->
+    <view bindtap="userAgreement">用户协议</view>
+    <!-- <view class="last">当前版本{{version}}</view> -->
+  </view>
+  <!-- <view class="btn" bindtap="logout">退出登录</view> -->
+</view>
+

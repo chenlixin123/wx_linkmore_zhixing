@@ -28,7 +28,7 @@
 
 .box_top_right {
   margin-left: 36rpx;
-  margin-top: 56rpx;
+  /* border: 1px solid; */
 }
 
 .img_touxiang {
@@ -39,15 +39,26 @@
 }
 
 .name {
+  height: 50rpx;
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  margin-top: 50rpx;
+  /* border: 1px solid; */
 }
-
+.name1 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 50rpx;
+  height: 50rpx;
+  /* border: 1px solid; */
+}
 .name_text {
   height: 34rpx;
   line-height: 34rpx;
   font-size: 34rpx;
+  /* border: 1px solid; */
 }
 
 .name_img {
@@ -60,8 +71,8 @@
   height: 28rpx;
   line-height: 28rpx;
   font-size: 28rpx;
-  margin-top: 38rpx;
   color: #666;
+  margin-top: 31rpx;
 }
 
 .box_center,
@@ -139,4 +150,27 @@
   color: #666;
   /* border: 1px solid; */
   text-align: center;
+}
+.input{
+  border: 1px solid #cdcdcd;
+  width: 226rpx;
+  padding: 5rpx 20rpx;
+  border-radius: 10rpx;
+  color: #999;
+}
+.img_box{
+  width: 40rpx;
+  /* border: 1px solid; */
+  margin-left: 28rpx;
+}
+.img_ok{
+  width: 32rpx;
+  height: 23rpx;
+  margin: 0 auto;
+  /* border: 1px solid red; */
+}
+.img_cancle{
+  width: 23rpx;
+  height: 23rpx;
+  /* border: 1px solid red; */
 }

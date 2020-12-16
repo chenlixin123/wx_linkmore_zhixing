@@ -4,7 +4,7 @@
   <view class='btn'>
     <!-- <image class='btn-bg' src='../../assets/img/bangding_anniu@3x.png'></image> -->
     <button class='btn-txt' open-type="getPhoneNumber" bindtap='getPhoneNumbers'
-      bindgetphonenumber="getPhoneNumber">微信快速绑定</button>
+      bindgetphonenumber="getPhoneNumber" >微信快速绑定</button>
   </view>
   <view bindtap='goBindPhone' class='phone-login'>输入手机号码登录/注册</view>
   <view class="fadeIn {{hideWarnToast ? 'fadeOut' : ''}}" wx:if="{{warnToast}}">

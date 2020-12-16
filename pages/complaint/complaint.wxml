@@ -1,0 +1,12 @@
+<view class='car-error'>
+  <textarea class='error-text' placeholder='输入您的建议或意见......' placeholder-class='txt' maxlength='300' adjust-position="false" bindinput="inDesc"></textarea>
+  <view wx:if="{{descNum==0}}" class='error-inNum'>最多输入300字</view>
+  <view wx:else class='error-inNum'>还可以输入{{300-descNum}}字</view>
+  <button style="width:474rpx;height:72rpx;line-height:42rpx;margin-left:106rpx;" bindtap='switchs' disabled='{{btnFlag}}' class="error-btn {{!btnFlag ? 'error-btn-active' : ''}}">确认提交</button>
+</view>
+  <!-- loading加载 -->
+  <view class="loadingq_box"  wx:if="{{loading_display}}">
+    <view class='loadingq'>
+      <view class='load-txtq'>提交中请稍候...</view>
+    </view>
+  </view>

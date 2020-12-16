@@ -163,6 +163,12 @@ Page({
       })
     }
   },
+  xiao(){
+    let that = this
+    that.setData({
+      shows3: false
+    })
+  },
   dels() {
     let that = this
     that.setData({

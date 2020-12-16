@@ -5,7 +5,7 @@
         {{data.preName}}
       </view>
       <view class="box_top_line_left_number">
-        {{floor}}{{floor ? '-' : ''}}{{data.stallName}}
+        {{floor}} {{data.stallName}}
       </view>
     </view>
     <view class="box_top_line_right" bindtap="authorization" wx:if="{{isAuthFlag == 1}}">
@@ -32,7 +32,7 @@
 
   <view class="box_br"></view>
 
-  <view class="top_time_line">
+  <view class="top_time_line"  wx:if="{{lockStatus == 1}}">
     <view>
       上次使用时间
     </view>
@@ -41,14 +41,23 @@
     </view>
   </view>
 
+  <view class="top_time_line"  wx:if="{{lockStatus == 2}}">
+    <view>
+      降锁时间
+    </view>
+    <view>
+      {{downLockTime}}
+    </view>
+  </view>
+
   <image class="center_img" src="{{src}}">
     <view class="center_img_text" wx:if="{{lockStatus == 1}}">
-      {{floor}}-{{data.stallName}}
+      专用
     </view>
   </image>
 
-  <view class="{{lockStatus == 2 ? 'car_numbner' : 'car_numbner1'}}">
-    {{floor}}-{{data.stallName}}
+  <view class="car_numbner">
+    {{data.stallName}}
   </view>
   <view class="bottom_btn_box">
     <view class="top_btn" bindtap="top">升起</view>
@@ -57,23 +66,21 @@
 </view>
 <!-- 升、降锁中提示 -->
 <view class="fadeIn" wx:if="{{loading}}">
-		<view class="weui-mask_transparent"></view>
-		<view class="weui-toast" style="height:80rpx;border-radius:8rpx;margin-top:45rpx;">
-			<view class="weui-toast__content">{{loading_text}}</view>
-		</view>
-	</view>
-
-  <!-- 是否有权限升降锁 -->
-  <view class="nopermissions" wx:if="{{nopermission == true}}">
-      <view class="nopermissions_content">
-          <view class="nopermissions_top">{{nopermissions}}</view>
-          <view class="nopermissions_bottom" bindtap="nopermissione">确定</view>
-      </view>
- </view>
-   <!-- loading加载 -->
-   <view class="loadingq_box"  wx:if="{{loading_display}}">
-    <view class='loadingq'>
-      <view class='load-txtq'>加载中请稍候...</view>
-    </view>
+  <view class="weui-toast" style="height:80rpx;border-radius:8rpx;margin-top:45rpx;">
+    <view class="weui-toast__content">{{loading_text}}</view>
   </view>
+</view>
 
+<!-- 是否有权限升降锁 -->
+<view class="nopermissions" wx:if="{{nopermission == true}}">
+  <view class="nopermissions_content">
+    <view class="nopermissions_top">{{nopermissions}}</view>
+    <view class="nopermissions_bottom" bindtap="nopermissione">确定</view>
+  </view>
+</view>
+<!-- loading加载 -->
+<view class="loadingq_box" wx:if="{{loading_display}}">
+  <view class='loadingq'>
+    <view class='load-txtq'>加载中请稍候...</view>
+  </view>
+</view>

@@ -11,9 +11,7 @@
   margin: 0 0 68rpx 30rpx;
 }
 
-.btn {
-  position: relative;
-}
+
 
 .btn-bg {
   width: 690rpx;
@@ -25,9 +23,7 @@
   /* font-size: 36rpx; */
   color: #fff;
   /* width: 990rpx; */
-  height: 100rpx;
   text-align: center;
-  /* line-height: 100rpx; */
   font-weight: bold;
   background: #f66913;
 }

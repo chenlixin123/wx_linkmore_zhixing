@@ -1,0 +1,50 @@
+page{
+  background-color: #f5f3f4;
+  padding-top: 20rpx;
+}
+.content{
+  width: 690rpx;
+  height:1120rpx;
+  padding:0 30rpx;
+  background-color: #fff;
+  color:#666;
+  font-size: 26rpx;
+  overflow:scroll;
+}
+view{
+  line-height: 56rpx;
+}
+.title{
+  color:#000;
+  font-size: 32rpx;
+  line-height: 60rpx;
+}
+.first{
+  margin-top: 20rpx;
+}
+image{
+  width: 100%;
+}
+.imgA{
+  height:1125rpx;
+}
+.imgB{
+  height:400rpx;
+}
+.imgC{
+  height:388rpx;
+}
+.imgD{
+  height:388rpx;
+}
+.imgE{
+  height:730rpx;
+}
+.imgF{
+  height:1159rpx;
+}
+.imgG{
+  height:1139rpx;
+}
+
+

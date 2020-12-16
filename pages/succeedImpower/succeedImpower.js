@@ -148,15 +148,6 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    let that = this
-    if (that.data.skip == 1){
-      console.log('正常返回')
-    }else{
-      wx.navigateBack({
-        delta: 1
-      })
-      console.log('跳转返回')
-    }
     
   },
 

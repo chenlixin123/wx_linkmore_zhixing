@@ -11,7 +11,14 @@
     "pages/personal_center/personal_center",
     "pages/malfunction/malfunction",
     "pages/confirmImpower/confirmImpower",
-    "pages/succeedImpower/succeedImpower"
+    "pages/succeedImpower/succeedImpower",
+    "pages/setting/setting",
+    "pages/aboutLm/aboutLm",
+    "pages/userAgreement/userAgreement",
+    "pages/userNorth/userNorth",
+    "pages/questions/questions",
+    "pages/process/process",
+    "pages/complaint/complaint"
   ],
   "permission": {
     "scope.userLocation": {
