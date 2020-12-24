@@ -21,16 +21,21 @@ App({
   userNames: '', //昵称
   shows: false,
   low: 0,
-  mobile:'',
-  nickname:'',
-  username:'',
-  login:false,
+  mobile: '',
+  nickname: '',
+  username: '',
+  login: false,
+  condition:'',
+  conditionId:'',
+  temp:'',
+  pm25:'',
+  limit:'',
+  tips:'',
+  time:'',
   /**
    * 本地服务器
    */
-  config: {
-    serverUrl: 'https://api.linkmoretech.cn'
-  },
+
   /**
    * loading加载
    */
@@ -51,4 +56,11 @@ App({
       showCancel: false
     });
   },
+  // onHide:function(){
+  //   wx.showModal({
+  //     title: '提示消息',
+  //     content: content,
+  //     showCancel: false
+  //   });
+  // }
 })

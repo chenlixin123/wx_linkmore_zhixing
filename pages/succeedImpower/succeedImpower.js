@@ -2,44 +2,6 @@
 const app = getApp()
 //引入network
 import api from "../../utils/network.js"
-
-/* 裁剪封面，
-   src为本地图片路径或临时文件路径，
-   imgW为原图宽度，
-   imgH为原图高度，
-   cb为裁剪成功后的回调函数
-*/
-// const clipImage = (src, imgW, imgH, cb) => {
-
-//   // ‘canvas’为前面创建的canvas标签的canvas-id属性值
-//   let ctx = wx.createCanvasContext('canvas');
-//   let canvasW = 640, canvasH = imgH;
-//         // 长宽比大于5:4
-//   if (imgW / imgH > 5 / 4) { 
-//     canvasW = imgH * 5 / 4;
-//   }
-
-//   // 将图片绘制到画布
-//   ctx.drawImage(src, (imgW - canvasW) / 2, 0, canvasW, canvasH, 0, 0, canvasW, canvasH)
-//   // draw()必须要用到，并且需要在绘制成功后导出图片
-//   ctx.draw(false, () => {
-//     setTimeout(() => {
-//       //  导出图片
-//       wx.canvasToTempFilePath({
-//         width: canvasW,
-//         height: canvasH,
-//         destWidth: canvasW,
-//         destHeight: canvasH,
-//         canvasId: 'canvas',
-//         fileType: 'jpg',
-//         success: (res) => {
-//           // res.tempFilePath为导出的图片路径
-//           typeof cb == 'function' && cb(res.tempFilePath);
-//         }
-//       })
-//     }, 1000);
-//   })
-// }
 Page({
 
   /**
@@ -81,20 +43,9 @@ Page({
           src: that.data.image,  // 这里填写网络图片路径 
           success: (res) => {
             // 这个是我封装的裁剪图片方法（下面将会说到）
-            console.log(res)
-            // wx.showToast({
-            //   title: '111111111111111',
-            // })
             that.setData({
               image: res.path,
             })
-            // clipImage(res.path, res.width, res.height, (img) => {
-            //   console.log(img);  // img为最终裁剪后生成的图片路径，我们可以用来做为转发封面图
-            //   that.setData({
-            //     images: img
-            //   })
-            //   console.log(that.data.images)
-            // });
           },
           fail: (err) => {
             console.log(err)
@@ -102,9 +53,6 @@ Page({
         });
       }
     }, app.token)
-    // wx.showShareMenu({
-    //   withShareTicket: true
-    // })
         that.setData({
           carname: options.carname,
           name: options.name,

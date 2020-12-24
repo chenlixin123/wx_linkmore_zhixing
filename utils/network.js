@@ -127,6 +127,8 @@ function Changeurl(test) {
     refresh: domin + '/prefecture/app/prefectures/v2.0/free/list',
     //城市列表
     city_list: domin + '/common/app/citys/v2.0/list',
+    //天气信息
+    citys_weather:domin + '/common/app/citys/v2.0/weather',
     //车区列表
     car_list: domin + '/prefecture/app/prefectures/v2.0/map/list',
     //车区详情

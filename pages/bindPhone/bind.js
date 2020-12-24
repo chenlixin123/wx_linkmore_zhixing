@@ -106,10 +106,6 @@ Page({
                 return
               }, 300);
             }, 3000);
-            // wx.showToast({
-            //   title: res.data.message.content,
-            //   icon: "none"
-            // })
           }
           let loginUser = wx.getStorageSync('login-user')
           loginUser.data.mobile = res.data.data;

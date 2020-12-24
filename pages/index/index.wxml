@@ -14,15 +14,26 @@
 
 
 
-    <!-- <view class="bottom_box">
+    <view class="bottom_box">
+      <!-- 时间、日期 -->
+      <view class="bottom_box_line" style="margin-top:35rpx;font-weight:bold;">
+        <view class="bottom_box_line_left">
+          <view style="font-size:35rpx;color:white;margin-right:18rpx;">
+            {{now_Time}} {{getWeekDate}}
+          </view>
+        </view>
+      </view>
+      <!-- PM2.5 -->
       <view class="bottom_box_line">
         <view class="bottom_box_line_left">
-          <image class='img_icon_tiqnqi' src='../../assets/icon/qing@3x.png'></image>
-          <view class='img_icon_text'>
-            晴
+          <view style="font-size: 33rpx;color:white;margin-right:18rpx;font-weight:bold;">
+            PM2.5
           </view>
-          <view class='img_icon_number'>
-            22℃
+          <view
+            style="color:white;font-size: 31rpx;width:196rpx;height:44rpx;line-height:44rpx;text-align:center;border-radius: 20px;"
+            class="{{ pm25 < 35 ? 'pm1' : pm25 >= 35 && pm25 < 75 ? 'pm2' : pm25 >= 75 && pm25 < 115 ? 'pm3' : pm25 >= 115 && pm25 < 150 ? 'pm4' : pm25 >= 150 &pm25 < 250 ? 'pm5' : pm25 > 250 ? 'pm6': '无'}}"
+            >
+            {{pm25}}  {{ pm25 < 35 ? '优' : pm25 >= 35 && pm25 < 75 ? '良' : pm25 >= 75 && pm25 < 115 ? '轻度污染' : pm25 >= 115 && pm25 < 150 ? '中度污染' : pm25 >= 150 &pm25 < 250 ? '重度污染' : pm25 > 250 ? '严重污染' : '无'}}
           </view>
         </view>
         <view class="bottom_box_line_right">
@@ -30,43 +41,35 @@
             今日限行
           </view>
           <view class="today_number" style="margin-right:12rpx;">
-            3
+            {{limit[0]}}
           </view>
           <view class="today_number">
-            9
+            {{limit[1]}}
           </view>
         </view>
       </view>
+      <!-- 天气 -->
       <view class="bottom_box_line">
         <view class="bottom_box_line_left">
-          <view style="font-size:28rpx;color:white;margin-right:18rpx;">
-            PM2.5
+          <image class='img_icon_tiqnqi' src='{{conditionId}}'></image>
+          <view class='img_icon_text'>
+            {{condition}}
           </view>
-          <view
-            style="color:white;font-size:26rpx;width:196rpx;height:44rpx;line-height:44rpx;background:#fece39;text-align:center;border-radius: 20px;">
-            107 轻度污染
+          <view class='img_icon_number'>
+            {{temp}}℃
           </view>
         </view>
         <view class="bottom_box_line_right">
-          <view style="font-size:28rpx;color:white;">
-            较宜洗车
+          <view style="font-size: 33rpx;color:white;">
+            {{tips}}
           </view>
         </view>
       </view>
-      <view class="bottom_box_line">
-        <view class="bottom_box_line_left">
-          <view style="font-size:28rpx;color:white;margin-right:18rpx;">
-            {{now_Time}} {{getWeekDate}} 农历十月初六
-          </view>
-        </view>
-      </view>
-    </view> -->
 
-
+    </view>
     <image class='img_beijing' src='../../assets/img/bg@2x.png'></image>
   </view>
 
-  
   <!-- 找寻停车场 -->
   <!-- <view class="search_stop" wx:if="{{ loading_display == false}}">
     <image class="search_stop_img" src="../../assets/icon/sousuo@2x.png"></image>
