@@ -36,7 +36,7 @@ Page({
     if (!app.token) {
       let that = this;
       app.time = new Date().getTime() + 1800000
-      console.log(app.time)
+      // console.log(app.time)
       that.setData({
         loading_display: true
       });
@@ -113,7 +113,7 @@ Page({
                     limits.split()
                     that.setData({
                       loading_display: false,
-                      city_name: '北京市•朝阳区',
+                      city_name: '北京市 朝阳区',
                       condition: '晴',
                       conditionId: '../../assets/icon/W0.png',
                       temp: "3",
@@ -185,7 +185,7 @@ Page({
                               let city = res.data.result.ad_info.city ? res.data.result.ad_info.city : '北京市'
                               let city_small_name = res.data.result.ad_info.district ? res.data.result.ad_info.district : '朝阳区'
                               that.setData({
-                                city_name: city + '•' + city_small_name
+                                city_name: city + ' ' + city_small_name
                               })
                             },
 
@@ -232,7 +232,7 @@ Page({
                           limits.split()
                           that.setData({
                             loading_display: false,
-                            city_name: '北京市•朝阳区',
+                            city_name: '北京市 朝阳区',
                             condition: '晴',
                             conditionId: '../../assets/icon/W0.png',
                             temp: "3",
@@ -273,7 +273,7 @@ Page({
                               let city = res.data.result.ad_info.city ? res.data.result.ad_info.city : '北京市'
                               let city_small_name = res.data.result.ad_info.district ? res.data.result.ad_info.district : '朝阳区'
                               that.setData({
-                                city_name: city + '•' + city_small_name
+                                city_name: city + ' ' + city_small_name
                               })
                             },
 
@@ -351,7 +351,7 @@ Page({
                           limits.split()
                           that.setData({
                             loading_display: false,
-                            city_name: '北京市•朝阳区',
+                            city_name: '北京市 朝阳区',
                             condition: '晴',
                             conditionId: '../../assets/icon/W0.png',
                             temp: "3",
@@ -466,7 +466,7 @@ Page({
                   let city = res.data.result.ad_info.city ? res.data.result.ad_info.city : '北京市'
                   let city_small_name = res.data.result.ad_info.district ? res.data.result.ad_info.district : '朝阳区'
                   that.setData({
-                    city_name: city + '•' + city_small_name
+                    city_name: city + ' ' + city_small_name
                   })
                 },
 
@@ -512,7 +512,7 @@ Page({
               limits.split()
               that.setData({
                 loading_display: false,
-                city_name: '北京市•朝阳区',
+                city_name: '北京市 朝阳区',
                 condition: '晴',
                 conditionId: '../../assets/icon/W0.png',
                 temp: "3",
@@ -586,7 +586,7 @@ Page({
                       let city_small_name = res.data.result.ad_info.district ? res.data.result.ad_info.district : '朝阳区'
                       console.log(city, city_small_name)
                       that.setData({
-                        city_name: city + '•' + city_small_name
+                        city_name: city + ' ' + city_small_name
                       })
                       console.log(that.data.city_name)
                     },
@@ -757,7 +757,7 @@ Page({
                     let city = res.data.result.ad_info.city ? res.data.result.ad_info.city : '北京市'
                     let city_small_name = res.data.result.ad_info.district ? res.data.result.ad_info.district : '朝阳区'
                     that.setData({
-                      city_name: city + '•' + city_small_name
+                      city_name: city + ' ' + city_small_name
                     })
                   },
 
@@ -805,7 +805,7 @@ Page({
                 limits.split()
                 that.setData({
                   loading_display: false,
-                  city_name: '北京市•朝阳区',
+                  city_name: '北京市 朝阳区',
                   condition: '晴',
                   conditionId: '../../assets/icon/W0.png',
                   temp: "3",
@@ -844,7 +844,7 @@ Page({
                     let city = res.data.result.ad_info.city ? res.data.result.ad_info.city : '北京市'
                     let city_small_name = res.data.result.ad_info.district ? res.data.result.ad_info.district : '朝阳区'
                     that.setData({
-                      city_name: city + '•' + city_small_name
+                      city_name: city + ' ' + city_small_name
                     })
                   },
 
@@ -925,7 +925,7 @@ Page({
                 limits.split()
                 that.setData({
                   loading_display: false,
-                  city_name: '北京市•朝阳区',
+                  city_name: '北京市 朝阳区',
                   condition: '晴',
                   conditionId: '../../assets/icon/W0.png',
                   temp: "3",
